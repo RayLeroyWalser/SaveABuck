@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context=".MainActivity" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+    -->
+
+    
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/dummy_content"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    
+
+
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+        <Button
+            android:id="@+id/categorias_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/categorias_button"
+            android:onClick="buttonCategoriasClicked" />
+
+        <Button
+            android:id="@+id/contas_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/categorias_button"
+            android:text="@string/contas_button"
+            android:onClick="buttonContasClicked" />
+
+        <Button
+            android:id="@+id/lancamento_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/contas_button"
+            android:text="@string/lancamento_button"
+            android:onClick="buttonLancamentoClicked" />
+   
+        <Button
+            android:id="@+id/pesquisalancamento_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lancamento_button"
+            android:text="@string/pesquisalancamento_button"
+            android:onClick="buttonClicked" />
+             
+        <Button
+            android:id="@+id/manutencaolancamento_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/pesquisalancamento_button"
+            android:text="@string/manutencaolancamento_button"
+            android:onClick="buttonClicked" />            
+</RelativeLayout>
