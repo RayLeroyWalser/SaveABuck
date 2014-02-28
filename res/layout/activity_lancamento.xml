@@ -5,15 +5,6 @@
     android:background="#0099cc"
     tools:context=".LancamentoActivity" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextContas"
-        android:text="@string/add_button" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -31,11 +22,30 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView1"
-        android:ems="10"
+        android:textSize="30sp"
         android:hint="@string/lancamento_hint"
         android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="148dp"
+        android:text="@string/add_button" />
+
+    <ExpandableListView
+        android:id="@+id/expandableListView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_below="@+id/editTextContas"
+        android:layout_centerHorizontal="true" >
+
+    </ExpandableListView>
 
 </RelativeLayout>
