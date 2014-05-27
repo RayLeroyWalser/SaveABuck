@@ -5,45 +5,12 @@
     android:background="#0099cc"
     tools:context=".ContasActivity" >
 
-           
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextContas"
-        android:text="@string/add_button" 
-        android:onClick="buttonAdd" />      
-    
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="19dp"
-        android:text="@string/contas_header"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editTextContas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:hint="@string/contas_hint" >
-         <requestFocus />
-    </EditText>
-
     <ListView
         android:id="@+id/listViewContas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button1" >
+        android:layout_alignParentLeft="true" >
+
     </ListView>
 
 </RelativeLayout>

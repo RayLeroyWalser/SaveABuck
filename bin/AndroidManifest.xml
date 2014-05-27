@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.controller"
+    package="com.example.saveabuck"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.controller.MenuPrincipalActivity"
+            android:name="com.example.saveabuck.MenuPrincipalActivity"
             android:label="@string/title_activity_menu_principal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,22 +23,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.controller.MainActivity"
+            android:name="com.example.saveabuck.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
-            android:name="com.example.controller.LancamentoActivity"
+            android:name="com.example.saveabuck.LancamentoActivity"
             android:label="@string/title_activity_lancamento" >
         </activity>
         <activity
-            android:name="com.example.controller.CategoriasActivity"
+            android:name="com.example.saveabuck.CategoriasActivity"
             android:label="@string/title_activity_categorias" >
         </activity>
         <activity
-            android:name="com.example.controller.ContasActivity"
+            android:name="com.example.saveabuck.ContasActivity"
             android:label="@string/title_activity_contas" >
+        </activity>
+        <activity
+            android:name="com.example.saveabuck.AddConta"
+            android:label="@string/title_activity_add_conta"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 
