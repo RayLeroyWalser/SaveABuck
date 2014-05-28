@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Controller</string>
+    <string name="app_name">SaveABuck</string>
     <string name="categorias_button">Categorias</string>
-    <string name="dummy_content">Controller</string>
+    <string name="dummy_content">SaveABuck</string>
     <string name="contas_button">Contas</string>
     <string name="lancamento_button">Lançamentos</string>
     <string name="pesquisalancamento_button">Pesquisas Lançamentos</string>
