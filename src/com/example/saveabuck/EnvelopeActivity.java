@@ -17,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class ContasActivity extends Activity {
+public class EnvelopeActivity extends Activity {
 
 	private ListView listView;
 	protected SaveABuckData DB;
@@ -34,7 +34,7 @@ public class ContasActivity extends Activity {
 		
 		// Initialize the DB
 		
-		DB = new SaveABuckData(ContasActivity.this);
+		DB = new SaveABuckData(EnvelopeActivity.this);
 		
 		// Get the Activity elements
 		listView = (ListView)findViewById(R.id.listViewContas);
@@ -76,14 +76,14 @@ public class ContasActivity extends Activity {
 	
 	public boolean goBackToMainMenu() {
         // app icon in action bar clicked; go home
-        Intent intent = new Intent(this, MenuPrincipalActivity.class);
+        Intent intent = new Intent(this, MainMenuActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         return true;
 	}		
 	
 	public boolean launchAddContas() {
-	    Intent intent = new Intent(this, AddConta.class);
+	    Intent intent = new Intent(this, AddEnvelope.class);
 	    startActivity(intent);
 		return true;
 	}	

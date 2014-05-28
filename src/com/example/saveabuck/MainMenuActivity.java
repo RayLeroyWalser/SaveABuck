@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
-public class MenuPrincipalActivity extends Activity {
+public class MainMenuActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +25,19 @@ public class MenuPrincipalActivity extends Activity {
 	
 	/** Called when the user clicks the Categorias button */
 	public void buttonCategoriasClicked(View view) {
-	    Intent intent = new Intent(this, CategoriasActivity.class);
+	    Intent intent = new Intent(this, GroupActivity.class);
 	    startActivity(intent);		
 	}
 
 	/** Called when the user clicks the Contas button */
 	public void buttonContasClicked(View view) {
-	    Intent intent = new Intent(this, ContasActivity.class);
+	    Intent intent = new Intent(this, EnvelopeActivity.class);
 	    startActivity(intent);		
 	}	
 
 	/** Called when the user clicks the Lancamento button */
 	public void buttonLancamentoClicked(View view) {
-	    Intent intent = new Intent(this, LancamentoActivity.class);
+	    Intent intent = new Intent(this, TransactionActivity.class);
 	    startActivity(intent);		
 	}	
 

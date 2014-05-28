@@ -6,7 +6,7 @@
     android:background="@android:color/transparent"
     android:windowIsFloating="true"
     android:windowNoTitle="true"    
-    tools:context=".AddConta" >
+    tools:context=".AddEnvelope" >
 
     <EditText
         android:id="@+id/editText1"

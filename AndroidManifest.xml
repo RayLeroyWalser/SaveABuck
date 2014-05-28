@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.saveabuck.MenuPrincipalActivity"
+            android:name="com.example.saveabuck.MainMenuActivity"
             android:label="@string/title_activity_menu_principal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,19 +29,19 @@
             android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
-            android:name="com.example.saveabuck.LancamentoActivity"
+            android:name="com.example.saveabuck.TransactionActivity"
             android:label="@string/title_activity_lancamento" >
         </activity>
         <activity
-            android:name="com.example.saveabuck.CategoriasActivity"
+            android:name="com.example.saveabuck.GroupActivity"
             android:label="@string/title_activity_categorias" >
         </activity>
         <activity
-            android:name="com.example.saveabuck.ContasActivity"
+            android:name="com.example.saveabuck.EnvelopeActivity"
             android:label="@string/title_activity_contas" >
         </activity>
         <activity
-            android:name="com.example.saveabuck.AddConta"
+            android:name="com.example.saveabuck.AddEnvelope"
             android:label="@string/title_activity_add_conta"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
