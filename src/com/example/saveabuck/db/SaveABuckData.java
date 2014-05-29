@@ -22,6 +22,7 @@ public class SaveABuckData extends SQLiteOpenHelper {
 	public static final String DATABASE_NAME 	= "SaveABuck.db";
 	private static final String TEXT_TYPE 		= " TEXT";
 	private static final String INTEGER_TYPE 	= " INTEGER";
+	private static final String REAL_TYPE 		= " REAL";
 	private static final String TABLEID_TYPE 	= " INTEGER PRIMARY KEY";
 	
 	
@@ -48,7 +49,7 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		onUpgrade(db, oldVersion, newVersion);
 	}
 	
-	// Contas		///////////////////////////////////////////////////////////////////////
+	// Envelopes		///////////////////////////////////////////////////////////////////////
 	
 	// Create Table
 	private static final String SQL_CREATE_TABLE_ENVELOPES =
@@ -56,7 +57,7 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		" (" +
 		EnvelopeEntry._ID 					+ TABLEID_TYPE 	+ COMMA_SEP +
 		EnvelopeEntry.COLUMN_NAME_TITLE 	+ TEXT_TYPE 	+ COMMA_SEP +
-		EnvelopeEntry.COLUMN_NAME_TYPE 		+ INTEGER_TYPE 	+
+		EnvelopeEntry.COLUMN_NAME_RESETVAL	+ REAL_TYPE 	+
 		" )";
 
 	// Delete Table
@@ -64,27 +65,27 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		"DROP TABLE IF EXISTS " + EnvelopeEntry.TABLE_NAME;    
 		
 	// Store a conta in the DB
-	public long storeConta(Envelope aEnvelope) {
+	public Long storeConta(Envelope aEnvelope) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		
 		ContentValues values = new ContentValues();
-		values.put(EnvelopeEntry.COLUMN_NAME_TITLE,	aEnvelope.getTitle());
-		values.put(EnvelopeEntry.COLUMN_NAME_TYPE, 	aEnvelope.getType());
+		values.put(EnvelopeEntry.COLUMN_NAME_TITLE,		aEnvelope.getTitle());
+		values.put(EnvelopeEntry.COLUMN_NAME_RESETVAL,	aEnvelope.getResetToValue());
 		
-		long newRowId;
+		Long newRowId;
 		newRowId = db.insert(EnvelopeEntry.TABLE_NAME, null, values);
 		
 		return newRowId;
 	}
 	
-	public ArrayList<Envelope> getContas() {
+	public ArrayList<Envelope> getEnvelopes() {
 		SQLiteDatabase db = this.getWritableDatabase();
-		ArrayList<Envelope> contas = new ArrayList<Envelope>();
+		ArrayList<Envelope> Envelopes = new ArrayList<Envelope>();
 		
 		String[] projection = {
 				EnvelopeEntry._ID,
 				EnvelopeEntry.COLUMN_NAME_TITLE,
-				EnvelopeEntry.COLUMN_NAME_TYPE
+				EnvelopeEntry.COLUMN_NAME_RESETVAL
 				};
 		
 		// Sort by name
@@ -105,53 +106,56 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		while(c.isAfterLast() == false) {
 			// Get the indexes and then get the values
 			String titleConta = c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_TITLE));
-			Integer typeConta = Integer.parseInt(c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_TYPE)));
+			Double valueToReset = Double.parseDouble(c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_RESETVAL)));
 				
 			// Put it in the return ArrayList			
-			Envelope conta = new Envelope(titleConta, typeConta);
-			contas.add(conta);
+			Envelope conta = new Envelope(titleConta, valueToReset);
+			Envelopes.add(conta);
 			
 			c.moveToNext();
 		}
 			
-		return contas;
+		return Envelopes;
 	}
 	
-	// Categorias	///////////////////////////////////////////////////////////////////////
+	// Group	///////////////////////////////////////////////////////////////////////
 	
 	// Create Table
 	private static final String SQL_CREATE_TABLE_GROUPS =
 		"CREATE TABLE " + GroupEntry.TABLE_NAME + 
 		" (" +
 		GroupEntry._ID 					+ TABLEID_TYPE 	+ COMMA_SEP +
-		GroupEntry.COLUMN_NAME_TITLE 		+ TEXT_TYPE 	+ 
+		GroupEntry.COLUMN_NAME_TITLE 	+ TEXT_TYPE 	+ COMMA_SEP +
+		GroupEntry.COLUMN_NAME_ICON 	+ INTEGER_TYPE 	+ 		
 		" )";
 	
 	// Delete Table
 	private static final String SQL_DELETE_TABLE_GROUPS =
 		"DROP TABLE IF EXISTS " + GroupEntry.TABLE_NAME;
 	
-	// Store a categoria in the DB	
-	public long storeCategorias(Group aCategoria) {
+	// Store a group in the DB	
+	public Long storeGroup(Group aGroup) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		
 		ContentValues values = new ContentValues();
-		values.put(GroupEntry.COLUMN_NAME_TITLE, aCategoria.getTitle());
+		values.put(GroupEntry.COLUMN_NAME_TITLE, aGroup.getTitle());
+		values.put(GroupEntry.COLUMN_NAME_ICON, aGroup.getIcon());
 		
-		long newRowId;
+		Long newRowId;
 		newRowId = db.insert(GroupEntry.TABLE_NAME, null, values);
 		
 		return newRowId;
 	}
 	
-	// Fetch an arraylist of all categorias
-	public ArrayList<Group> getCategorias() {
+	// Fetch an arraylist of all group
+	public ArrayList<Group> getGroup() {
 		SQLiteDatabase db = this.getWritableDatabase();
-		ArrayList<Group> categorias = new ArrayList<Group>();
+		ArrayList<Group> groups = new ArrayList<Group>();
 		
 		String[] projection = {
 				GroupEntry._ID,
 				GroupEntry.COLUMN_NAME_TITLE,
+				GroupEntry.COLUMN_NAME_ICON
 				};
 		
 		// Sort by name
@@ -171,61 +175,62 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the index and then get the values
-			String nomeCategoria = c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
+			String nomeCategoria	= c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
+			Integer iconCategoria	= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_ICON)));
 			
 			// Put it in the return ArrayList
-			Group categoria = new Group(nomeCategoria);
-			categorias.add(categoria);
+			Group newGroup = new Group(nomeCategoria, iconCategoria);
+			groups.add(newGroup);
 			
 			c.moveToNext();
 		}
 			
-		return categorias;
+		return groups;
 	}
 	
-	// Lancamentos	///////////////////////////////////////////////////////////////////////
+	// Transactions	///////////////////////////////////////////////////////////////////////
 	
 	// Create Table
 	private static final String SQL_CREATE_TABLE_LANCAMENTOS =
 		"CREATE TABLE " + TransactionEntry.TABLE_NAME + 
 		" (" +
 		TransactionEntry._ID 					+ TABLEID_TYPE	+ COMMA_SEP +
-		TransactionEntry.COLUMN_NAME_TITLE 		+ TEXT_TYPE		+ COMMA_SEP +
+		TransactionEntry.COLUMN_NAME_GROUP		+ INTEGER_TYPE 	+ COMMA_SEP +
+		TransactionEntry.COLUMN_NAME_ENVELOPE 	+ INTEGER_TYPE 	+ COMMA_SEP +      
 		TransactionEntry.COLUMN_NAME_TIMESTAMP	+ INTEGER_TYPE 	+ COMMA_SEP +
-		TransactionEntry.COLUMN_NAME_ENVELOPE 		+ INTEGER_TYPE 	+ COMMA_SEP +      
-		TransactionEntry.COLUMN_NAME_GROUP	+ INTEGER_TYPE 	+
+		TransactionEntry.COLUMN_NAME_VALUE		+ REAL_TYPE 	+
 		" )";
 	
 	// Delete Table
 	private static final String SQL_DELETE_TABLE_LANCAMENTOS =
 		"DROP TABLE IF EXISTS " + TransactionEntry.TABLE_NAME;     
 	   
-	// Store a lancamento in the DB
-	public long storeLancamento(Transaction aLancamento) {
+	// Store a transaction in the DB
+	public Long storeTransaction(Transaction aTransaction) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		
 		ContentValues values = new ContentValues();
-		values.put(TransactionEntry.COLUMN_NAME_TITLE, 		aLancamento.getTitle());
-		values.put(TransactionEntry.COLUMN_NAME_TIMESTAMP, 	aLancamento.getTimestamp());
-		values.put(TransactionEntry.COLUMN_NAME_ENVELOPE, 		aLancamento.getConta());
-		values.put(TransactionEntry.COLUMN_NAME_GROUP, 	aLancamento.getCategoria());
+		values.put(TransactionEntry.COLUMN_NAME_GROUP, 		aTransaction.getGroup());
+		values.put(TransactionEntry.COLUMN_NAME_TIMESTAMP, 	aTransaction.getTimestamp());
+		values.put(TransactionEntry.COLUMN_NAME_ENVELOPE, 	aTransaction.getEnvelope());
+		values.put(TransactionEntry.COLUMN_NAME_VALUE, 		aTransaction.getValue());
 		
-		long newRowId;
+		Long newRowId;
 		newRowId = db.insert(TransactionEntry.TABLE_NAME, null, values);
 		
 		return newRowId;
 	}
 	
-	public ArrayList<Transaction> getLancamentos() {
+	public ArrayList<Transaction> getTransactions() {
 		SQLiteDatabase db = this.getWritableDatabase();
-		ArrayList<Transaction> lancamentos = new ArrayList<Transaction>();
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 		
 		String[] projection = {
 				TransactionEntry._ID,
-				TransactionEntry.COLUMN_NAME_TITLE,
+				TransactionEntry.COLUMN_NAME_GROUP,
 				TransactionEntry.COLUMN_NAME_TIMESTAMP,
 				TransactionEntry.COLUMN_NAME_ENVELOPE,
-				TransactionEntry.COLUMN_NAME_GROUP
+				TransactionEntry.COLUMN_NAME_VALUE
 				};
 		
 		// Sort by timestamp
@@ -245,18 +250,18 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the indexes and then get the values
-			String titleLancamento 		= c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TITLE));
-			Integer timestampLancamento	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TIMESTAMP)));
-			Integer contaLancamento		= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_ENVELOPE)));
-			Integer categoriaLancamento	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_GROUP)));
+			Integer groupTransaction 	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_GROUP)));
+			Integer envelopeTransaction	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_ENVELOPE)));
+			Long timestampTransaction	= Long.parseLong(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TIMESTAMP)));
+			Double valueTransaction		= Double.parseDouble(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_VALUE)));
 				
 			// Put it in the return ArrayList			
-			Transaction lancamento = new Transaction(titleLancamento, timestampLancamento, contaLancamento, categoriaLancamento);
-			lancamentos.add(lancamento);
+			Transaction transaction = new Transaction(groupTransaction,  envelopeTransaction, timestampTransaction, valueTransaction);
+			transactions.add(transaction);
 			
 			c.moveToNext();
 		}
 			
-		return lancamentos;
+		return transactions;
 	}	
 }

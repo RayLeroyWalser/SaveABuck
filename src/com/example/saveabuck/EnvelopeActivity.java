@@ -55,14 +55,14 @@ public class EnvelopeActivity extends Activity {
 	        case android.R.id.home:
 	        	return goBackToMainMenu();
 	        case R.id.action_add_conta:
-	        	return launchAddContas();
+	        	return launchAddEnvelopes();
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	}	
 	
 	public void populateListBox() {
-		ArrayList<Envelope> contas = DB.getContas();
+		ArrayList<Envelope> contas = DB.getEnvelopes();
 		ArrayList<String> nomes = new ArrayList<String>();
 		
 		for(int count = 0; count < contas.size(); count++) {
@@ -82,7 +82,7 @@ public class EnvelopeActivity extends Activity {
         return true;
 	}		
 	
-	public boolean launchAddContas() {
+	public boolean launchAddEnvelopes() {
 	    Intent intent = new Intent(this, AddEnvelope.class);
 	    startActivity(intent);
 		return true;

@@ -2,27 +2,38 @@ package com.example.saveabuck.model;
 
 public class Transaction {
 	private Integer id;
-	private Integer categoria;
-	private Integer conta;
+	private Integer group;
+	private Integer envelope;
 	
-	private long 	timestamp;
-	private double	value;
+	private Long 	timestamp;
+	private Double	value;
 	
-	public Transaction(Integer id, String title, long timestamp, Integer categoria, Integer conta, double value) {
+
+	
+	public Transaction(Integer id, Integer group, Integer envelope,	Long timestamp, Double value) {
 		super();
 		this.id = id;
+		this.group = group;
+		this.envelope = envelope;
 		this.timestamp = timestamp;
-		this.categoria = categoria;
-		this.conta = conta;
 		this.value = value;
 	}
 	
-	public Transaction(Integer categoria, Integer conta, double value) {
+	public Transaction(Integer group, Integer envelope,	Long timestamp, Double value) {
+		super();
+		this.id = -1;
+		this.group = group;
+		this.envelope = envelope;
+		this.timestamp = timestamp;
+		this.value = value;
+	}	
+
+	public Transaction(Integer group, Integer envelope, Double value) {
 		super();
 
 		this.id = -1;
-		this.categoria = categoria;
-		this.conta = conta;
+		this.group = group;
+		this.envelope = envelope;
 		
 		java.util.Date date= new java.util.Date();
 		this.timestamp = date.getTime();
@@ -37,35 +48,37 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public Integer getCategoria() {
-		return categoria;
+	public Integer getGroup() {
+		return group;
 	}
 
-	public void setCategoria(Integer categoria) {
-		this.categoria = categoria;
+	public void setGroup(Integer group) {
+		this.group = group;
 	}
 
-	public Integer getConta() {
-		return conta;
+	public Integer getEnvelope() {
+		return envelope;
 	}
 
-	public void setConta(Integer conta) {
-		this.conta = conta;
+	public void setEnvelope(Integer envelope) {
+		this.envelope = envelope;
 	}
 
-	public long getTimestamp() {
+	public Long getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(long timestamp) {
+	public void setTimestamp(Long timestamp) {
 		this.timestamp = timestamp;
 	}
 
-	public double getValue() {
+	public Double getValue() {
 		return value;
 	}
 
-	public void setValue(double value) {
+	public void setValue(Double value) {
 		this.value = value;
-	}	
+	}
+
+
 }
