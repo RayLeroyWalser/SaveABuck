@@ -20,7 +20,7 @@
     <string name="contas_hint">Digite a nova conta</string>
     <string name="title_activity_lancamento">Lancamento</string>
     <string name="lancamento_header">Valor:</string>
-    <string name="lancamento_hint">Entre com o valor do novo lançamento</string>
+    <string name="transaction_hint">New value</string>
     <string name="title_activity_add_conta">AddConta</string>
     <string name="conta_addconta">+</string>
     <string name="addconta_hint">Nova conta</string>

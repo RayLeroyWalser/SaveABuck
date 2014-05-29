@@ -23,7 +23,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView1"
         android:textSize="30sp"
-        android:hint="@string/lancamento_hint"
+        android:hint="@string/transaction_hint"
         android:inputType="numberDecimal" >
 
         <requestFocus />
