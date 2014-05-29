@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.example.saveabuck.R;
 import com.example.saveabuck.db.SaveABuckData;
-import com.example.saveabuck.model.Contas;
+import com.example.saveabuck.model.Envelope;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -62,7 +62,7 @@ public class EnvelopeActivity extends Activity {
 	}	
 	
 	public void populateListBox() {
-		ArrayList<Contas> contas = DB.getContas();
+		ArrayList<Envelope> contas = DB.getContas();
 		ArrayList<String> nomes = new ArrayList<String>();
 		
 		for(int count = 0; count < contas.size(); count++) {

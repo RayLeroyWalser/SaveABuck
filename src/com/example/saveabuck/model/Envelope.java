@@ -1,18 +1,18 @@
 package com.example.saveabuck.model;
 
-public class Contas {
+public class Envelope {
 	private Integer id;
 	private String 	title;
 	private Integer	type; 
 		
-	public Contas(Integer id, String title, Integer type) {
+	public Envelope(Integer id, String title, Integer type) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.type = type;
 	}
 	
-	public Contas(String title, Integer type) {
+	public Envelope(String title, Integer type) {
 		super();
 		this.title = title;
 		this.type = type;

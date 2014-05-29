@@ -1,16 +1,16 @@
 package com.example.saveabuck.model;
 
-public class Categorias {
+public class Group {
 	private Integer id;
 	private String 	title;
 
-	public Categorias(Integer id, String title) {
+	public Group(Integer id, String title) {
 		super();
 		this.id = id;
 		this.title = title;
 	}
 	
-	public Categorias(String title) {
+	public Group(String title) {
 		super();
 		this.title = title;
 	}	
