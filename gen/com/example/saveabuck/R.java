@@ -35,8 +35,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_add_conta=0x7f09000c;
-        public static final int action_settings=0x7f09000b;
+        public static final int action_add_conta=0x7f09000d;
+        public static final int action_settings=0x7f09000c;
         public static final int button1=0x7f090002;
         public static final int button2=0x7f090001;
         public static final int categorias_button=0x7f090009;
@@ -47,6 +47,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int fullscreen_content=0x7f090007;
         public static final int fullscreen_content_controls=0x7f090008;
         public static final int listViewContas=0x7f090005;
+        public static final int piechart=0x7f09000b;
         public static final int textView1=0x7f090004;
     }
     public static final class layout {
@@ -80,7 +81,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int dummy_content=0x7f060002;
         public static final int lancamento_button=0x7f060004;
         public static final int lancamento_header=0x7f060012;
-        public static final int lancamento_hint=0x7f060013;
         public static final int manutencaolancamento_button=0x7f060006;
         public static final int pesquisalancamento_button=0x7f060005;
         public static final int title_activity_add_conta=0x7f060014;
@@ -88,23 +88,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_activity_contas=0x7f06000e;
         public static final int title_activity_lancamento=0x7f060011;
         public static final int title_activity_menu_principal=0x7f060007;
+        public static final int transaction_hint=0x7f060013;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
-
         
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
-
     
  API 11 theme customizations can go here. 
 

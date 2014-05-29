@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#909090"
+    android:background="#A0A0A0"
     tools:context=".MainActivity" >
 
     <!--
@@ -17,7 +17,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
         android:textColor="#33b5e5"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -27,29 +26,23 @@
          android:fitsSystemWindows.
     -->
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    <LinearLayout
+        android:id="@+id/piechart"        
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:text="@string/lancamento_header"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+    </LinearLayout>    
 
-    <EditText
-        android:id="@+id/editTextContas"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:hint="@string/lancamento_hint"
-        android:inputType="numberDecimal"
-        android:textSize="30sp" >
-
-        <requestFocus />
-    </EditText>
-
+        android:layout_below="@+id/piechart"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add_button" />    
+    
     <ExpandableListView
         android:id="@+id/expandableListView1"
         android:layout_width="match_parent"
@@ -58,12 +51,6 @@
         android:layout_below="@+id/button1" >
     </ExpandableListView>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextContas"
-        android:layout_centerHorizontal="true"
-        android:text="@string/add_button" />
+
 
 </RelativeLayout>
