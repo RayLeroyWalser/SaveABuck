@@ -79,8 +79,12 @@ public class MainMenuActivity extends Activity {
         private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
         private float[] value_degree;
         private int[] COLORS={Color.BLUE,Color.GREEN,Color.GRAY,Color.CYAN,Color.RED};
-        RectF rectf = new RectF (10, 10, 200, 200);
         int temp=0;
+        int viewWidth;
+        int viewHeight;
+        RectF rectf = new RectF (0,0,0,0);
+        
+        
         public MyGraphview(Context context, float[] values) {
 
             super(context);
@@ -90,11 +94,25 @@ public class MainMenuActivity extends Activity {
                 value_degree[i]=values[i];
             }
         }
+        
+        @Override
+        protected void onSizeChanged(int xNew, int yNew, int xOld, int yOld){
+            super.onSizeChanged(xNew, yNew, xOld, yOld);
+
+            viewWidth = xNew;
+            viewHeight = yNew;
+       }        
+        
         @Override
         protected void onDraw(Canvas canvas) {
             // TODO Auto-generated method stub
             super.onDraw(canvas);
-
+            
+            ;
+            
+            
+            rectf.set(200, 10, this.getHeight() - 10, this.getWidth() - 200);      
+            
             for (int i = 0; i < value_degree.length; i++) {//values2.length; i++) {
                 if (i == 0) {
                     paint.setColor(COLORS[i]);
@@ -104,7 +122,14 @@ public class MainMenuActivity extends Activity {
                 {
                         temp += (int) value_degree[i - 1];
                         paint.setColor(COLORS[i]);
+                        
+                        
+                        
                         canvas.drawArc(rectf, temp, value_degree[i], true, paint);
+                        
+                        String text = String.format("%d, %d", viewWidth, viewHeight); 
+                        
+                        canvas.drawText(text, 0, 5, 10, 10, paint);
                 }
             }
         }
