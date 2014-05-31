@@ -8,7 +8,7 @@
     <string name="lancamento_button">Lançamentos</string>
     <string name="pesquisalancamento_button">Pesquisas Lançamentos</string>
     <string name="manutencaolancamento_button">Manutenção de Lançamentos</string>
-    <string name="title_activity_menu_principal">MenuPrincipal</string>
+    <string name="title_activity_menu_principal">SaveABuck</string>
     <string name="action_settings">Settings</string>
     <string name="cancel">Cancelar</string>
     <string name="title_activity_categorias">Categorias</string>
