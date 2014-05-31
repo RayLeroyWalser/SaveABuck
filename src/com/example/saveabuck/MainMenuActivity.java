@@ -24,6 +24,7 @@ public class MainMenuActivity extends Activity {
 		setContentView(R.layout.activity_menu_principal);
 		
         LinearLayout linear=(LinearLayout) findViewById(R.id.piechart);
+        
         values=calculateData(values);
         linear.addView(new MyGraphview(this,values));		
 	}
@@ -106,12 +107,12 @@ public class MainMenuActivity extends Activity {
         @Override
         protected void onDraw(Canvas canvas) {
             // TODO Auto-generated method stub
-            super.onDraw(canvas);
+            super.onDraw(canvas);            
             
-            ;
+            int iHeight = this.getHeight();
+            int iWidth = this.getWidth();
             
-            
-            rectf.set(200, 10, this.getHeight() - 10, this.getWidth() - 200);      
+            rectf.set(200, 10, iHeight - 10, iWidth - 200);      
             
             for (int i = 0; i < value_degree.length; i++) {//values2.length; i++) {
                 if (i == 0) {
@@ -122,14 +123,9 @@ public class MainMenuActivity extends Activity {
                 {
                         temp += (int) value_degree[i - 1];
                         paint.setColor(COLORS[i]);
-                        
-                        
-                        
+
                         canvas.drawArc(rectf, temp, value_degree[i], true, paint);
-                        
-                        String text = String.format("%d, %d", viewWidth, viewHeight); 
-                        
-                        canvas.drawText(text, 0, 5, 10, 10, paint);
+
                 }
             }
         }

@@ -35,11 +35,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_add_conta=0x7f09000d;
-        public static final int action_settings=0x7f09000c;
+        public static final int action_add_conta=0x7f09000e;
+        public static final int action_settings=0x7f09000d;
         public static final int button1=0x7f090002;
         public static final int button2=0x7f090001;
         public static final int categorias_button=0x7f090009;
+        public static final int controls=0x7f09000c;
         public static final int dummy_button=0x7f09000a;
         public static final int editText1=0x7f090000;
         public static final int editTextContas=0x7f090003;
