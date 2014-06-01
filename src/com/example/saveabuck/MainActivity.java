@@ -3,21 +3,14 @@ package com.example.saveabuck;
 import com.example.saveabuck.R;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
-import android.view.View;
-import android.widget.LinearLayout;
 
-import com.example.saveabuck.PieChart;
+import com.example.saveabuck.piechart.PieChart;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
     /** Called when the activity is first created. */
     float values[]={300,400,100,500};
 
@@ -26,15 +19,18 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-        Resources res = getResources();
+//		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        final PieChart pie = (PieChart) this.findViewById(R.id.Pie);
-        pie.addItem("Agamemnon", 2, res.getColor(R.color.seafoam));
-        pie.addItem("Bocephus", 3.5f, res.getColor(R.color.chartreuse));
-        pie.addItem("Calliope", 2.5f, res.getColor(R.color.emerald));
-        pie.addItem("Daedalus", 3, res.getColor(R.color.bluegrass));
-        pie.addItem("Euripides", 1, res.getColor(R.color.turquoise));
-        pie.addItem("Ganymede", 3, res.getColor(R.color.slate));
+		
+//        Resources res = getResources();
+
+//        final PieChart pie = (PieChart) this.findViewById(R.id.Pie);
+//        pie.addItem("Agamemnon", 2, res.getColor(R.color.seafoam));
+//        pie.addItem("Bocephus", 3.5f, res.getColor(R.color.chartreuse));
+//        pie.addItem("Calliope", 2.5f, res.getColor(R.color.emerald));
+//        pie.addItem("Daedalus", 3, res.getColor(R.color.bluegrass));
+//        pie.addItem("Euripides", 1, res.getColor(R.color.turquoise));
+//        pie.addItem("Ganymede", 3, res.getColor(R.color.slate));
 
 	}
 	

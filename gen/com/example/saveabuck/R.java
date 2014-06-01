@@ -16,15 +16,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int autoCenterPointerInSlice=0x7f010002;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static final int buttonBarButtonStyle=0x7f010001;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static final int buttonBarStyle=0x7f010000;
+        public static final int autoCenterPointerInSlice=0x7f010000;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -32,7 +24,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int highlightStrength=0x7f010003;
+        public static final int highlightStrength=0x7f010001;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -41,7 +33,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int labelColor=0x7f010004;
+        public static final int labelColor=0x7f010002;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -51,7 +43,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int labelHeight=0x7f010005;
+        public static final int labelHeight=0x7f010003;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -62,7 +54,7 @@ containing a value of this type.
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int labelPosition=0x7f010006;
+        public static final int labelPosition=0x7f010004;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -72,7 +64,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int labelWidth=0x7f010007;
+        public static final int labelWidth=0x7f010005;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -82,7 +74,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int labelY=0x7f010008;
+        public static final int labelY=0x7f010006;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -90,7 +82,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int pieRotation=0x7f010009;
+        public static final int pieRotation=0x7f010007;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -100,7 +92,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int pointerRadius=0x7f01000a;
+        public static final int pointerRadius=0x7f010008;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -108,7 +100,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int showText=0x7f01000b;
+        public static final int showText=0x7f010009;
     }
     public static final class color {
         public static final int black_overlay=0x7f050000;
@@ -122,6 +114,11 @@ containing a value of this type.
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
@@ -133,15 +130,17 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Pie=0x7f040002;
-        public static final int action_settings=0x7f040005;
-        public static final int addtransaction=0x7f040004;
+        public static final int Pie=0x7f040005;
+        public static final int action_settings=0x7f040006;
+        public static final int addtransaction=0x7f040003;
         public static final int left=0x7f040000;
+        public static final int piechartFragment=0x7f040004;
         public static final int right=0x7f040001;
-        public static final int transactionlist=0x7f040003;
+        public static final int transactionlist=0x7f040002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int piechart_fragment_month=0x7f030001;
     }
     public static final class menu {
         public static final int menu_main=0x7f090000;
@@ -160,11 +159,13 @@ containing a value of this type.
         public static final int contas_header=0x7f07000f;
         public static final int contas_hint=0x7f070010;
         public static final int dummy_content=0x7f070002;
+        public static final int hello_world=0x7f070018;
         public static final int lancamento_button=0x7f070004;
         public static final int lancamento_header=0x7f070012;
         public static final int manutencaolancamento_button=0x7f070006;
         public static final int pesquisalancamento_button=0x7f070005;
         public static final int title_activity_add_conta=0x7f070014;
+        public static final int title_activity_add_transaction=0x7f070017;
         public static final int title_activity_categorias=0x7f07000a;
         public static final int title_activity_contas=0x7f07000e;
         public static final int title_activity_lancamento=0x7f070011;
@@ -215,41 +216,6 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarButtonStyle com.example.saveabuck:buttonBarButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #ButtonBarContainerTheme_buttonBarStyle com.example.saveabuck:buttonBarStyle}</code></td><td></td></tr>
-           </table>
-           @see #ButtonBarContainerTheme_buttonBarButtonStyle
-           @see #ButtonBarContainerTheme_buttonBarStyle
-         */
-        public static final int[] ButtonBarContainerTheme = {
-            0x7f010000, 0x7f010001
-        };
-        /**
-          <p>This symbol is the offset where the {@link com.example.saveabuck.R.attr#buttonBarButtonStyle}
-          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
-
-
-          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.saveabuck:buttonBarButtonStyle
-        */
-        public static final int ButtonBarContainerTheme_buttonBarButtonStyle = 1;
-        /**
-          <p>This symbol is the offset where the {@link com.example.saveabuck.R.attr#buttonBarStyle}
-          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
-
-
-          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.saveabuck:buttonBarStyle
-        */
-        public static final int ButtonBarContainerTheme_buttonBarStyle = 0;
-        /** Attributes that can be used with a PieChart.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #PieChart_autoCenterPointerInSlice com.example.saveabuck:autoCenterPointerInSlice}</code></td><td></td></tr>
            <tr><td><code>{@link #PieChart_highlightStrength com.example.saveabuck:highlightStrength}</code></td><td></td></tr>
            <tr><td><code>{@link #PieChart_labelColor com.example.saveabuck:labelColor}</code></td><td></td></tr>
@@ -273,9 +239,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #PieChart_showText
          */
         public static final int[] PieChart = {
-            0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005,
-            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
-            0x7f01000a, 0x7f01000b
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009
         };
         /**
           <p>This symbol is the offset where the {@link com.example.saveabuck.R.attr#autoCenterPointerInSlice}
