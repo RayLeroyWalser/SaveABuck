@@ -18,8 +18,13 @@
             android:label="@string/title_activity_menu_principal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.saveabuck.AddTransactionActivity"
+            android:label="@string/title_activity_add_transaction" >
         </activity>
     </application>
 

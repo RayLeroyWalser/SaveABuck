@@ -1,4 +1,4 @@
-package com.example.saveabuck;
+package com.example.saveabuck.piechart;
 
 /* Copyright (C) 2012 The Android Open Source Project
 
@@ -28,6 +28,8 @@ import android.view.*;
 import android.widget.Scroller;
 
 import com.example.saveabuck.R;
+import com.example.saveabuck.R.color;
+import com.example.saveabuck.R.styleable;
 
 import java.lang.Math;
 import java.lang.Override;
@@ -130,7 +132,7 @@ public class PieChart extends ViewGroup {
 	 *
 	 * @param context
 	 * @param attrs   An attribute set which can contain attributes from
-	 *                {@link com.example.android.customviews.R.styleable.PieChart} as well as attributes inherited
+	 *                {@link com.example.saveabuck.piechart.android.customviews.R.styleable.PieChart} as well as attributes inherited
 	 *                from {@link android.view.View}.
 	 */
 	public PieChart(Context context, AttributeSet attrs) {

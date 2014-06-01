@@ -24,5 +24,7 @@
     <string name="title_activity_add_conta">AddConta</string>
     <string name="conta_addconta">+</string>
     <string name="addconta_hint">Nova conta</string>
+    <string name="title_activity_add_transaction">AddTransactionActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
