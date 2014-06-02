@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.saveabuck.MainActivity"
+            android:name="com.caux.saveabuck.MainActivity"
             android:label="@string/title_activity_menu_principal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.saveabuck.AddTransactionActivity"
-            android:label="@string/title_activity_add_transaction" >
+            android:name="com.caux.saveabuck.AddTransactionActivity"
+            android:label="@string/title_activity_menu_principal"
+            android:theme="@style/NoBarDialog" >  
+
         </activity>
     </application>
 

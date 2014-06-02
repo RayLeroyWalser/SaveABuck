@@ -1,7 +1,7 @@
-package com.example.saveabuck.fragments;
+package com.caux.saveabuck.fragments;
 
+import com.caux.saveabuck.piechart.PieChart;
 import com.example.saveabuck.R;
-import com.example.saveabuck.piechart.PieChart;
 
 import android.app.Fragment;
 import android.content.res.Resources;

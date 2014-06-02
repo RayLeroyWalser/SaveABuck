@@ -1,4 +1,4 @@
-package com.example.saveabuck.piechart;
+package com.caux.saveabuck.piechart;
 
 /* Copyright (C) 2012 The Android Open Source Project
 

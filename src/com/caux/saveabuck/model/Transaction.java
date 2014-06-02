@@ -1,4 +1,4 @@
-package com.example.saveabuck.model;
+package com.caux.saveabuck.model;
 
 public class Transaction {
 	private Integer id;
