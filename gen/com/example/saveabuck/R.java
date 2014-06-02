@@ -130,59 +130,36 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Pie=0x7f040005;
-        public static final int action_settings=0x7f040006;
-        public static final int addtransaction=0x7f040003;
+        public static final int Pie=0x7f040008;
+        public static final int action_settings=0x7f040009;
+        public static final int addtransaction=0x7f040006;
+        public static final int button_Add=0x7f040003;
+        public static final int button_Cancel=0x7f040004;
+        public static final int editTextValue=0x7f040002;
         public static final int left=0x7f040000;
-        public static final int piechartFragment=0x7f040004;
+        public static final int piechartFragment=0x7f040007;
         public static final int right=0x7f040001;
-        public static final int transactionlist=0x7f040002;
+        public static final int transactionlist=0x7f040005;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int piechart_fragment_month=0x7f030001;
+        public static final int activity_add_transaction=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int piechart_fragment_month=0x7f030002;
     }
     public static final class menu {
         public static final int menu_main=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f070008;
-        public static final int add_button=0x7f07000b;
-        public static final int addconta_hint=0x7f070016;
+        public static final int action_settings=0x7f070002;
+        public static final int add_transaction=0x7f070004;
         public static final int app_name=0x7f070000;
-        public static final int cancel=0x7f070009;
-        public static final int categoria_hint=0x7f07000d;
-        public static final int categoria_title=0x7f07000c;
-        public static final int categorias_button=0x7f070001;
-        public static final int conta_addconta=0x7f070015;
-        public static final int contas_button=0x7f070003;
-        public static final int contas_header=0x7f07000f;
-        public static final int contas_hint=0x7f070010;
-        public static final int dummy_content=0x7f070002;
-        public static final int hello_world=0x7f070018;
-        public static final int lancamento_button=0x7f070004;
-        public static final int lancamento_header=0x7f070012;
-        public static final int manutencaolancamento_button=0x7f070006;
-        public static final int pesquisalancamento_button=0x7f070005;
-        public static final int title_activity_add_conta=0x7f070014;
-        public static final int title_activity_add_transaction=0x7f070017;
-        public static final int title_activity_categorias=0x7f07000a;
-        public static final int title_activity_contas=0x7f07000e;
-        public static final int title_activity_lancamento=0x7f070011;
-        public static final int title_activity_menu_principal=0x7f070007;
-        public static final int transaction_hint=0x7f070013;
+        public static final int cancel_button=0x7f070006;
+        public static final int ok_button=0x7f070005;
+        public static final int title_activity_menu_principal=0x7f070001;
+        public static final int transaction_hint=0x7f070003;
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -194,15 +171,20 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
-        /**  Application theme. 
+        public static final int AppBaseTheme=0x7f080005;
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f080000;
         public static final int ButtonBar=0x7f080003;
         public static final int ButtonBarButton=0x7f080004;
-        public static final int FullscreenActionBarStyle=0x7f080005;
-        public static final int FullscreenTheme=0x7f080002;
+        public static final int FullscreenActionBarStyle=0x7f080006;
+        public static final int FullscreenTheme=0x7f080001;
+        public static final int NoBarDialog=0x7f080002;
     }
     public static final class styleable {
         /** 

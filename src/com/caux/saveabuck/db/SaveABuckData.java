@@ -1,4 +1,4 @@
-package com.example.saveabuck.db;
+package com.caux.saveabuck.db;
 
 import java.util.ArrayList;
 
@@ -8,12 +8,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.saveabuck.db.contracts.SaveABuckContract.GroupEntry;
-import com.example.saveabuck.db.contracts.SaveABuckContract.EnvelopeEntry;
-import com.example.saveabuck.db.contracts.SaveABuckContract.TransactionEntry;
-import com.example.saveabuck.model.Group;
-import com.example.saveabuck.model.Envelope;
-import com.example.saveabuck.model.Transaction;
+import com.caux.saveabuck.db.contracts.SaveABuckContract.EnvelopeEntry;
+import com.caux.saveabuck.db.contracts.SaveABuckContract.GroupEntry;
+import com.caux.saveabuck.db.contracts.SaveABuckContract.TransactionEntry;
+import com.caux.saveabuck.model.Envelope;
+import com.caux.saveabuck.model.Group;
+import com.caux.saveabuck.model.Transaction;
 
 public class SaveABuckData extends SQLiteOpenHelper {
 	// If you change the database schema, you must increment the database version.

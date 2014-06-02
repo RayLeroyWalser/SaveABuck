@@ -1,4 +1,4 @@
-package com.example.saveabuck.db.contracts;
+package com.caux.saveabuck.db.contracts;
 
 import android.provider.BaseColumns;
 

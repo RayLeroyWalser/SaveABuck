@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        class="com.example.saveabuck.fragments.MonthlyPieChartFragment" />
+        class="com.caux.saveabuck.fragments.MonthlyPieChartFragment" />
 
     <Button
         android:id="@+id/addtransaction"
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/piechartFragment"
-        android:text="@string/add_button" />
+        android:text="@string/add_transaction"
+        android:onClick="buttonAddTransaction" />
         
 </RelativeLayout>

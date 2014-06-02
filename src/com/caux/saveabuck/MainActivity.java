@@ -1,18 +1,19 @@
-package com.example.saveabuck;
+package com.caux.saveabuck;
 
+import com.caux.saveabuck.piechart.PieChart;
 import com.example.saveabuck.R;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
+import android.view.View;
 
-import com.example.saveabuck.piechart.PieChart;
 
 public class MainActivity extends FragmentActivity {
     /** Called when the activity is first created. */
-    float values[]={300,400,100,500};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,4 +41,11 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
+	
+	/** Called when the user clicks the + button */
+	public void buttonAddTransaction(View view) {
+	    Intent intent = new Intent(this, AddTransactionActivity.class);
+	    startActivity(intent);		
+	}	
+	
 }
