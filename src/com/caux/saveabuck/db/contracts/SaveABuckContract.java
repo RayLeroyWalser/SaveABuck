@@ -8,22 +8,22 @@ public class SaveABuckContract {
 	public SaveABuckContract() {}
 	
 	public static abstract class EnvelopeEntry implements BaseColumns {
-        public static final String TABLE_NAME 			= "envelope";
-        public static final String COLUMN_NAME_TITLE 	= "envelope_title";
-        public static final String COLUMN_NAME_RESETVAL	= "envelope_resetToValue";
+        public static final String TABLE_NAME 			= "envelopes";
+        public static final String COLUMN_NAME_TITLE 	= "envelopes_title";
+        public static final String COLUMN_NAME_RESETVAL	= "envelopes_resetToValue";
  	}
 	
 	public static abstract class GroupEntry implements BaseColumns {
-        public static final String TABLE_NAME 			= "group";
-        public static final String COLUMN_NAME_TITLE 	= "group_title";
-        public static final String COLUMN_NAME_ICON 	= "group_icon";
+        public static final String TABLE_NAME 			= "groups";
+        public static final String COLUMN_NAME_TITLE 	= "groups_title";
+        public static final String COLUMN_NAME_ICON 	= "groups_icon";
     }
 	
 	public static abstract class TransactionEntry implements BaseColumns {
-        public static final String TABLE_NAME 			= "transaction";
-        public static final String COLUMN_NAME_GROUP	= "transaction_group";
-        public static final String COLUMN_NAME_ENVELOPE	= "transaction_envelope";
-        public static final String COLUMN_NAME_TIMESTAMP= "transaction_timestamp";
-        public static final String COLUMN_NAME_VALUE	= "transaction_value";
+        public static final String TABLE_NAME 			= "transactions";
+        public static final String COLUMN_NAME_GROUP	= "transactions_group";
+        public static final String COLUMN_NAME_ENVELOPE	= "transactions_envelope";
+        public static final String COLUMN_NAME_TIMESTAMP= "transactions_timestamp";
+        public static final String COLUMN_NAME_VALUE	= "transactions_value";
     }	
 }

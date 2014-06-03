@@ -131,20 +131,22 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Pie=0x7f040008;
-        public static final int action_settings=0x7f040009;
+        public static final int action_settings=0x7f04000a;
         public static final int addtransaction=0x7f040006;
         public static final int button_Add=0x7f040003;
         public static final int button_Cancel=0x7f040004;
         public static final int editTextValue=0x7f040002;
         public static final int left=0x7f040000;
-        public static final int piechartFragment=0x7f040007;
+        public static final int piechartFragment=0x7f040005;
         public static final int right=0x7f040001;
-        public static final int transactionlist=0x7f040005;
+        public static final int transactionListviewFragment=0x7f040007;
+        public static final int transactionlist=0x7f040009;
     }
     public static final class layout {
         public static final int activity_add_transaction=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int piechart_fragment_month=0x7f030002;
+        public static final int fragment_piechart_month=0x7f030002;
+        public static final int fragment_transaction_listview=0x7f030003;
     }
     public static final class menu {
         public static final int menu_main=0x7f090000;
