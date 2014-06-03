@@ -30,7 +30,7 @@ public class MonthlyPieChartFragment extends Fragment {
 	
 	@Override	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.piechart_fragment_month, container, false);		
+		View view = inflater.inflate(R.layout.fragment_piechart_month, container, false);		
 		
 		return view;
 		

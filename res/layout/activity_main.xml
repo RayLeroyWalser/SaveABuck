@@ -6,14 +6,7 @@
     android:background="@android:color/white"
     tools:context=".MainActivity" >
 
-    <ExpandableListView
-        android:id="@+id/transactionlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addtransaction">
-    </ExpandableListView>
+
 
     <fragment
         android:id="@+id/piechartFragment"
@@ -31,5 +24,14 @@
         android:layout_below="@+id/piechartFragment"
         android:text="@string/add_transaction"
         android:onClick="buttonAddTransaction" />
+    
+    <fragment
+        android:id="@+id/transactionListviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/addtransaction"        
+        class="com.caux.saveabuck.fragments.TransactionListviewFragment" />    
         
 </RelativeLayout>
