@@ -42,7 +42,9 @@ public class TransactionListviewFragment extends Fragment {
 		ArrayList<String> values = new ArrayList<String>();
 
 		for(int count = 0; count < transactions.size(); count++) {
-			values.add(transactions.get(count).getValue().toString());
+			// TODO Get real money unit from Settings
+			String formatedString = "R$" + String.format("%.2f", transactions.get(count).getValue());
+			values.add(formatedString);
 		}
 
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, values);
