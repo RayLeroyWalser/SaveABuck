@@ -105,11 +105,12 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the indexes and then get the values
-			String titleConta = c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_TITLE));
+			Integer id			= Integer.parseInt(c.getString(c.getColumnIndex(EnvelopeEntry._ID)));		
+			String titleConta 	= c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_TITLE));
 			Double valueToReset = Double.parseDouble(c.getString(c.getColumnIndex(EnvelopeEntry.COLUMN_NAME_RESETVAL)));
 				
 			// Put it in the return ArrayList			
-			Envelope conta = new Envelope(titleConta, valueToReset);
+			Envelope conta = new Envelope(id, titleConta, valueToReset);
 			Envelopes.add(conta);
 			
 			c.moveToNext();
@@ -175,11 +176,12 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the index and then get the values
+			Integer id				= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry._ID)));
 			String nomeCategoria	= c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
 			Integer iconCategoria	= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_ICON)));
 			
 			// Put it in the return ArrayList
-			Group newGroup = new Group(nomeCategoria, iconCategoria);
+			Group newGroup = new Group(id, nomeCategoria, iconCategoria);
 			groups.add(newGroup);
 			
 			c.moveToNext();
@@ -250,13 +252,14 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the indexes and then get the values
+			Integer id					= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry._ID)));
 			Integer groupTransaction 	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_GROUP)));
 			Integer envelopeTransaction	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_ENVELOPE)));
 			Long timestampTransaction	= Long.parseLong(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TIMESTAMP)));
 			Double valueTransaction		= Double.parseDouble(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_VALUE)));
 				
 			// Put it in the return ArrayList			
-			Transaction transaction = new Transaction(groupTransaction,  envelopeTransaction, timestampTransaction, valueTransaction);
+			Transaction transaction = new Transaction(id, groupTransaction,  envelopeTransaction, timestampTransaction, valueTransaction);
 			transactions.add(transaction);
 			
 			c.moveToNext();
