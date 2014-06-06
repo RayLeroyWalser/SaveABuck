@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.WindowManager.LayoutParams;
 import android.widget.EditText;
 import android.content.res.Configuration;
+import android.util.Log;
 
 public class AddTransactionActivity extends Activity {
 	
@@ -25,6 +26,16 @@ public class AddTransactionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_transaction);
+		
+		Bundle extraVariables = getIntent().getExtras();
+        if(extraVariables != null)
+        {
+        	String transactionToEdit = extraVariables.getString("transactionToEdit");
+        	
+        	Log.d("AddTransaction", transactionToEdit);
+
+        }
+		
 		
 		// Initialize the DB
 		DB = new SaveABuckData(AddTransactionActivity.this);
@@ -96,5 +107,5 @@ public class AddTransactionActivity extends Activity {
 				
 			}
     	});
-    }	
+    }
 }
