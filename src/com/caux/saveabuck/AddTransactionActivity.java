@@ -21,6 +21,7 @@ public class AddTransactionActivity extends Activity {
 	
 	protected SaveABuckData DB;
 	protected EditText editText;
+	protected String transactionToEditAsString;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,7 @@ public class AddTransactionActivity extends Activity {
 		Bundle extraVariables = getIntent().getExtras();
         if(extraVariables != null)
         {
-        	String transactionToEdit = extraVariables.getString("transactionToEdit");
-        	
-        	Log.d("AddTransaction", transactionToEdit);
-
+        	transactionToEditAsString = extraVariables.getString("transactionToEdit");
         }
 		
 		
@@ -43,7 +41,14 @@ public class AddTransactionActivity extends Activity {
         // Request focus and show soft keyboard automatically
 		editText = (EditText) findViewById(R.id.editTextValue);
 		editText.requestFocus();
-        this.getWindow().setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_VISIBLE);	
+        this.getWindow().setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        
+        if(transactionToEditAsString != null)
+        {
+        	Transaction transactionToEdit = DB.getTransaction(Integer.parseInt(transactionToEditAsString));
+        	
+        	editText.setText(transactionToEdit.getValue().toString());
+        }
         
 
         // Set a Textwatcher to format the input

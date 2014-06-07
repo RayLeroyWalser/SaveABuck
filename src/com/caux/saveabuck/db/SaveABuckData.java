@@ -223,6 +223,49 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		return newRowId;
 	}
 	
+	public Transaction getTransaction(Integer id) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		String[] projection = {
+				TransactionEntry._ID,
+				TransactionEntry.COLUMN_NAME_GROUP,
+				TransactionEntry.COLUMN_NAME_TIMESTAMP,
+				TransactionEntry.COLUMN_NAME_ENVELOPE,
+				TransactionEntry.COLUMN_NAME_VALUE
+				};
+		
+		// Sort by timestamp
+		String sortOrder 	= TransactionEntry.COLUMN_NAME_TIMESTAMP + " DESC";
+		String whereClause 	= TransactionEntry._ID + " = ?";
+		String[] whereArgs	= new String[] {id.toString()};
+		
+		Cursor c = db.query(
+				TransactionEntry.TABLE_NAME, 			// The table to query
+				projection,                             // The columns to return
+				whereClause,                       		// The columns for the WHERE clause
+				whereArgs,                    			// The values for the WHERE clause
+				null,                                   // don't group the rows
+				null,                                   // don't filter by row groups
+				sortOrder
+				);
+				
+		c.moveToFirst();
+		
+
+		// Get the indexes and then get the values
+		Integer transactionId					= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry._ID)));
+		Integer groupTransaction 	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_GROUP)));
+		Integer envelopeTransaction	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_ENVELOPE)));
+		Long timestampTransaction	= Long.parseLong(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TIMESTAMP)));
+		Double valueTransaction		= Double.parseDouble(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_VALUE)));
+			
+		// Put it in the return ArrayList			
+		Transaction transaction = new Transaction(transactionId, groupTransaction,  envelopeTransaction, timestampTransaction, valueTransaction);
+
+			
+		return transaction;		
+	}
+	
 	public ArrayList<Transaction> getTransactions() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
