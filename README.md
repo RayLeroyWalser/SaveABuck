@@ -1,4 +1,4 @@
 SaveABuck
 ==========
 
-Finance app
+Budget app
