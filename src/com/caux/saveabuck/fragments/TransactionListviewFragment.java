@@ -30,7 +30,7 @@ public class TransactionListviewFragment extends Fragment {
              
         listView = (ListView) this.getActivity().findViewById(R.id.transactionlist);
         
-        populateListBox();
+        populateTransactionListBox();
         addListViewClickHandler();
 
     }	
@@ -47,7 +47,7 @@ public class TransactionListviewFragment extends Fragment {
 		
 	}
 	
-	public void populateListBox() {		
+	public void populateTransactionListBox() {		
         SaveABuckData DB = new SaveABuckData(this.getActivity());        
 
 		transactions = DB.getTransactions();

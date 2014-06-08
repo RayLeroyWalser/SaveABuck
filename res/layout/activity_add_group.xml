@@ -15,16 +15,15 @@
         android:id="@+id/editTextValue"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:inputType="phone" >
+        android:inputType="phone|textAutoCorrect"
+        android:textSize="40sp" >
 
         <requestFocus />
     </EditText>
-
+    
     <Button
         android:id="@+id/button_Cancel"
         android:layout_width="130dp"
@@ -33,30 +32,14 @@
         android:layout_alignRight="@+id/editTextValue"
         android:onClick="buttonCancel"
         android:text="@string/cancel_button" />
+    
     <Button
         android:id="@+id/button_Add"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editTextValue"
         android:layout_alignParentBottom="true"
-        android:onClick="buttonAddTransaction"
-        android:text="@string/ok_button" />
-    
-    <ListView
-        android:id="@+id/grouplist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_Add"
-        android:layout_alignLeft="@+id/editTextValue"
-        android:layout_alignRight="@+id/editTextValue"
-        android:layout_below="@+id/editTextValue"
-        android:textColor="@android:color/black"
-        android:gravity="right"
-        android:footerDividersEnabled="false"
-        android:headerDividersEnabled="false" >
-
-    </ListView>
-
-
+        android:onClick="buttonAddGroup"
+        android:text="@string/ok_button" />    
 
 </RelativeLayout>

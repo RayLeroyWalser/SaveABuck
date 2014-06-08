@@ -149,7 +149,7 @@ public class SaveABuckData extends SQLiteOpenHelper {
 	}
 	
 	// Fetch an arraylist of all group
-	public ArrayList<Group> getGroup() {
+	public ArrayList<Group> getGroups() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ArrayList<Group> groups = new ArrayList<Group>();
 		

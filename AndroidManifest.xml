@@ -25,8 +25,12 @@
         <activity
             android:name="com.caux.saveabuck.AddTransactionActivity"
             android:label="@string/title_activity_menu_principal"
-            android:theme="@style/NoBarDialog" >  
-
+            android:theme="@style/NoBarDialog" >
+        </activity>
+        <activity
+            android:name="com.caux.saveabuck.AddGroupActivity"
+            android:label="@string/title_activity_add_group"
+            android:theme="@style/NoBarDialog" >
         </activity>
     </application>
 
