@@ -2,6 +2,11 @@ package com.caux.saveabuck.fragments;
 
 import java.util.ArrayList;
 
+import com.caux.saveabuck.AddTransactionActivity;
+import com.caux.saveabuck.db.SaveABuckData;
+import com.caux.saveabuck.model.Group;
+import com.example.saveabuck.R;
+
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,31 +14,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
-import com.caux.saveabuck.AddTransactionActivity;
-import com.caux.saveabuck.db.SaveABuckData;
-import com.caux.saveabuck.model.Transaction;
-import com.example.saveabuck.R;
-
-public class TransactionListviewFragment extends Fragment {
+public class GroupListviewFragment extends Fragment {
 	protected ListView listView;
-	protected ArrayList<Transaction> transactions;
+	protected ArrayList<Group> groups;
 	protected SaveABuckData DB;
 	
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        
+               
         // Get the resources
-        listView = (ListView) this.getActivity().findViewById(R.id.transactionlist);
+        listView = (ListView) this.getActivity().findViewById(R.id.grouplist);
         
         // Initialize the DB
         DB = new SaveABuckData(this.getActivity()); 
-
-        populateTransactionListBox();
+        
+        populateGroupListBox();
         addListViewClickHandler();
 
     }	
@@ -41,30 +41,29 @@ public class TransactionListviewFragment extends Fragment {
 	
 	@Override	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_transaction_listview, container, false);		
+		View view = inflater.inflate(R.layout.fragment_group_listview, container, false);		
 		
-		return view;		
+		return view;
 	}
 	
-	public void populateTransactionListBox() {		
-		transactions = DB.getTransactions();
+	public void populateGroupListBox() {		
+		groups = DB.getGroups();
 		ArrayList<String> values = new ArrayList<String>();
 
-		for(int count = 0; count < transactions.size(); count++) {
-			// TODO Get real money unit from Settings
-			String formatedString = "R$" + String.format("%.2f", transactions.get(count).getValue());
-			values.add(formatedString);
+		for(int count = 0; count < groups.size(); count++) {
+			// TODO Format colors
+			values.add(groups.get(count).getTitle());
 		}
+		values.add("+");
 
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, values);
 	    
 		// Get the Activity elements
-        //ListView listView = (ListView)this.getActivity().findViewById(R.id.transactionlist);	    
+        ListView listView = (ListView) this.getActivity().findViewById(R.id.grouplist);	    
 	    listView.setAdapter(adapter);
 	}
 	
-    public void addListViewClickHandler() {
-    	
+    public void addListViewClickHandler() {  	
     	listView.setOnItemClickListener(new OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -73,5 +72,5 @@ public class TransactionListviewFragment extends Fragment {
     	    startActivity(intent);	        	
             }
     	});
-    }
+    }	
 }

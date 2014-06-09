@@ -1,15 +1,10 @@
 package com.caux.saveabuck;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-import com.caux.saveabuck.db.SaveABuckData;
-import com.caux.saveabuck.model.Group;
-import com.caux.saveabuck.model.Transaction;
-import com.example.saveabuck.R;
-
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,8 +13,11 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.content.res.Configuration;
-import android.util.Log;
+
+import com.caux.saveabuck.db.SaveABuckData;
+import com.caux.saveabuck.model.Group;
+import com.caux.saveabuck.model.Transaction;
+import com.example.saveabuck.R;
 
 public class AddTransactionActivity extends Activity {
 	
