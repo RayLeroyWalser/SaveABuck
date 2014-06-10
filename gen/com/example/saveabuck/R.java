@@ -147,8 +147,9 @@ containing a value of this type.
         public static final int activity_add_group=0x7f030000;
         public static final int activity_add_transaction=0x7f030001;
         public static final int activity_main=0x7f030002;
-        public static final int fragment_piechart_month=0x7f030003;
-        public static final int fragment_transaction_listview=0x7f030004;
+        public static final int fragment_group_listview=0x7f030003;
+        public static final int fragment_piechart_month=0x7f030004;
+        public static final int fragment_transaction_listview=0x7f030005;
     }
     public static final class menu {
         public static final int menu_main=0x7f090000;
