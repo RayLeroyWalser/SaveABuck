@@ -41,22 +41,15 @@
         android:layout_alignParentBottom="true"
         android:onClick="buttonAddTransaction"
         android:text="@string/ok_button" />
-    
-    <ListView
-        android:id="@+id/grouplist"
+    <fragment
+        android:id="@+id/groupListviewFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_Add"
         android:layout_alignLeft="@+id/editTextValue"
         android:layout_alignRight="@+id/editTextValue"
-        android:layout_below="@+id/editTextValue"
-        android:textColor="@android:color/black"
-        android:gravity="right"
-        android:footerDividersEnabled="false"
-        android:headerDividersEnabled="false" >
-
-    </ListView>
-
+        android:layout_below="@+id/editTextValue"       
+        class="com.caux.saveabuck.fragments.GroupListviewFragment" /> 
 
 
 </RelativeLayout>

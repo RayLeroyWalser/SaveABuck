@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:inputType="phone|textAutoCorrect"
+        android:inputType="textAutoCorrect"
         android:textSize="40sp" >
 
         <requestFocus />

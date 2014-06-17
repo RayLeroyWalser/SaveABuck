@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.caux.saveabuck.db.SaveABuckData;
+import com.caux.saveabuck.fragments.GroupListviewFragment;
+import com.caux.saveabuck.fragments.TransactionListviewFragment;
 import com.caux.saveabuck.model.Group;
 import com.caux.saveabuck.model.Transaction;
 import com.example.saveabuck.R;
@@ -64,10 +66,18 @@ public class AddTransactionActivity extends Activity {
         // Set a Textwatcher to format the input
         editText.setRawInputType(Configuration.KEYBOARD_12KEY); 
         addTransactionFormatter();   
+
         
-        // Populate Choose Group listbox
-        populateGroupListBox();		
 	}
+	
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+		
+		GroupListviewFragment groupListView = (GroupListviewFragment) getFragmentManager().findFragmentById(R.id.groupListviewFragment);		
+		groupListView.populateGroupListBox();
+	}	
 	
 	/** Called when the user clicks the Ok button */
 	public void buttonAddTransaction(View view) {
@@ -122,23 +132,4 @@ public class AddTransactionActivity extends Activity {
 			}
     	});
     }
-    
-	public void populateGroupListBox() {		
-        SaveABuckData DB = new SaveABuckData(this);        
-
-		ArrayList<Group> groups = DB.getGroups();
-		ArrayList<String> values = new ArrayList<String>();
-
-		for(int count = 0; count < groups.size(); count++) {
-			// TODO Format colors
-			values.add(groups.get(count).getTitle());
-		}
-		values.add("+");
-
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-	    
-		// Get the Activity elements
-        ListView listView = (ListView) this.findViewById(R.id.grouplist);	    
-	    listView.setAdapter(adapter);
-	}    
 }
