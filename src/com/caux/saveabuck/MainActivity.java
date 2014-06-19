@@ -1,15 +1,11 @@
 package com.caux.saveabuck;
 
 import com.caux.saveabuck.fragments.TransactionListviewFragment;
-import com.caux.saveabuck.piechart.PieChart;
 import com.example.saveabuck.R;
 
 import android.os.Bundle;
-import android.app.Fragment;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.View;
 
@@ -37,7 +33,7 @@ public class MainActivity extends FragmentActivity {
 		super.onResume();
 		
 		TransactionListviewFragment transactionListView = (TransactionListviewFragment) getFragmentManager().findFragmentById(R.id.transactionListviewFragment);		
-		transactionListView.populateTransactionListBox();
+		transactionListView.populateTransactionListBox();		
 	}
 	
 	

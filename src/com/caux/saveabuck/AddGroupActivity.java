@@ -1,10 +1,7 @@
 package com.caux.saveabuck;
 
-import java.text.NumberFormat;
-
 import com.caux.saveabuck.db.SaveABuckData;
 import com.caux.saveabuck.model.Group;
-import com.caux.saveabuck.model.Transaction;
 import com.example.saveabuck.R;
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,8 +1,6 @@
 package com.caux.saveabuck;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,14 +8,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-
 import com.caux.saveabuck.db.SaveABuckData;
 import com.caux.saveabuck.fragments.GroupListviewFragment;
-import com.caux.saveabuck.fragments.TransactionListviewFragment;
-import com.caux.saveabuck.model.Group;
 import com.caux.saveabuck.model.Transaction;
 import com.example.saveabuck.R;
 
@@ -26,6 +19,7 @@ public class AddTransactionActivity extends Activity {
 	protected SaveABuckData DB;
 	protected EditText editText;
 	protected String transactionToEditAsString;
+	protected GroupListviewFragment groupListView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +31,7 @@ public class AddTransactionActivity extends Activity {
 
 		// Get the resources
 		editText = (EditText) findViewById(R.id.editTextValue);
+		groupListView = (GroupListviewFragment) getFragmentManager().findFragmentById(R.id.groupListviewFragment);		
 		
         // Request focus and show soft keyboard automatically
 		editText.requestFocus();
@@ -66,16 +61,13 @@ public class AddTransactionActivity extends Activity {
         // Set a Textwatcher to format the input
         editText.setRawInputType(Configuration.KEYBOARD_12KEY); 
         addTransactionFormatter();   
-
-        
 	}
 	
 	@Override
 	public void onResume()
 	{
 		super.onResume();
-		
-		GroupListviewFragment groupListView = (GroupListviewFragment) getFragmentManager().findFragmentById(R.id.groupListviewFragment);		
+	
 		groupListView.populateGroupListBox();
 	}	
 	

@@ -5,7 +5,7 @@
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
     android:layout_gravity="center_vertical|center_horizontal"
-    android:background="@android:color/white"
+    android:background="@drawable/rounded"
     android:windowBackground="@android:color/white"
     android:windowIsFloating="true"
     android:windowNoTitle="true"

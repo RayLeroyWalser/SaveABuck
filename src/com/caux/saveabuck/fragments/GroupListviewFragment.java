@@ -34,9 +34,8 @@ public class GroupListviewFragment extends Fragment {
         // Initialize the DB
         DB = new SaveABuckData(this.getActivity()); 
         
-        populateGroupListBox();
+        // Add click handler
         addListViewClickHandler();
-
     }	
 	
 	
