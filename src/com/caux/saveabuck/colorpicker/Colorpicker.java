@@ -1,7 +1,10 @@
 package com.caux.saveabuck.colorpicker;
 
 import com.caux.saveabuck.piechart.PieChart;
+import com.example.saveabuck.R;
+
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -45,15 +48,17 @@ public class Colorpicker extends ViewGroup {
 	protected void init() {
 		paint = new Paint();
 		
+		Resources res = getResources();
+		
 		colors = new Integer[maxRegions];
-		colors[0] = Color.argb(0xff, 0xaf, 0, 0);		// Dark Red
-		colors[1] = Color.argb(0xff, 0xff, 0, 0);		// Red
-		colors[2] = Color.argb(0xff, 0xff, 0xaf, 0);	// Orange
-		colors[3] = Color.argb(0xff, 0xff, 0xff, 0);	// Yellow
-		colors[4] = Color.argb(0xff, 0, 0xff, 0);		// Green
-		colors[5] = Color.argb(0xff, 0, 0xff, 0xff);	// Cyan
-		colors[6] = Color.argb(0xff, 0, 0, 0xff);		// Blue
-		colors[7] = Color.argb(0xff, 0xff, 0, 0xff);	// Magenta
+		colors[0] = res.getColor(R.color.dark_red);
+		colors[1] = res.getColor(R.color.red);
+		colors[2] = res.getColor(R.color.orange);
+		colors[3] = res.getColor(R.color.yellow);
+		colors[4] = res.getColor(R.color.green);
+		colors[5] = res.getColor(R.color.cyan);
+		colors[6] = res.getColor(R.color.blue);
+		colors[7] = res.getColor(R.color.magenta);
 	
 		// Create a gesture detector to handle onTouch messages
 		mDetector = new GestureDetector(Colorpicker.this.getContext(), new GestureListener());
@@ -139,14 +144,11 @@ public class Colorpicker extends ViewGroup {
 		float spacingHor = (bounds.right / numberOfColumns);
 		float spacingVer = (bounds.bottom / numberOfRows);
 		
-		if(selectedRegion == -1) {
-			return (Math.min(spacingHor, spacingVer) / 2) - 10;			
-		}
-		else if(region == selectedRegion) {
+		if(region == selectedRegion) {
 			return (Math.min(spacingHor, spacingVer) / 2);
 		}
 		else {
-			return (Math.min(spacingHor, spacingVer) / 2) - 30;
+			return (Math.min(spacingHor, spacingVer) / 2) - 15;
 
 		}		
 	}

@@ -105,12 +105,20 @@ containing a value of this type.
     public static final class color {
         public static final int black=0x7f050007;
         public static final int black_overlay=0x7f050000;
+        public static final int blue=0x7f05000e;
         public static final int bluegrass=0x7f050004;
         public static final int chartreuse=0x7f050002;
+        public static final int cyan=0x7f05000d;
+        public static final int dark_red=0x7f050008;
         public static final int emerald=0x7f050003;
+        public static final int green=0x7f05000c;
+        public static final int magenta=0x7f05000f;
+        public static final int orange=0x7f05000a;
+        public static final int red=0x7f050009;
         public static final int seafoam=0x7f050001;
         public static final int slate=0x7f050006;
         public static final int turquoise=0x7f050005;
+        public static final int yellow=0x7f05000b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
