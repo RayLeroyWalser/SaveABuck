@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="320dp"
+    android:layout_height="280dp"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
     android:layout_gravity="center_vertical|center_horizontal"
@@ -40,6 +40,16 @@
         android:layout_alignLeft="@+id/editTextValue"
         android:layout_alignParentBottom="true"
         android:onClick="buttonAddGroup"
-        android:text="@string/ok_button" />    
+        android:text="@string/ok_button" /> 
+        
+	<fragment
+        android:id="@+id/colorpickerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_Add"
+        android:layout_alignLeft="@+id/editTextValue"
+        android:layout_alignRight="@+id/editTextValue"
+        android:layout_below="@+id/editTextValue"       
+        class="com.caux.saveabuck.fragments.ColorpickerFragment" /> 
 
 </RelativeLayout>
