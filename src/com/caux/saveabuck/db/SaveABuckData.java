@@ -148,6 +148,45 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		return newRowId;
 	}
 	
+	// Fetch a group
+	public Group getGroup(Integer id) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		String[] projection = {
+				GroupEntry._ID,
+				GroupEntry.COLUMN_NAME_TITLE,
+				GroupEntry.COLUMN_NAME_ICON
+				};
+		
+		// Sort by timestamp
+		String sortOrder 	= GroupEntry.COLUMN_NAME_TITLE + " DESC";
+		String whereClause 	= GroupEntry._ID + " = ?";
+		String[] whereArgs	= new String[] {id.toString()};
+		
+		Cursor c = db.query(
+				GroupEntry.TABLE_NAME, 			// The table to query
+				projection,                             // The columns to return
+				whereClause,                       		// The columns for the WHERE clause
+				whereArgs,                    			// The values for the WHERE clause
+				null,                                   // don't group the rows
+				null,                                   // don't filter by row groups
+				sortOrder
+				);
+				
+		c.moveToFirst();
+	
+		// Get the index and then get the values
+		Integer groupId				= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry._ID)));
+		String nomeGroup	= c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
+		Integer iconGroup	= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_ICON)));
+		
+		// Put it in the return ArrayList
+		Group group = new Group(groupId, nomeGroup, iconGroup);
+
+			
+		return group;
+	}
+	
 	// Fetch an arraylist of all group
 	public ArrayList<Group> getGroups() {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -176,12 +215,12 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		while(c.isAfterLast() == false) {
 			// Get the index and then get the values
-			Integer id				= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry._ID)));
-			String nomeCategoria	= c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
-			Integer iconCategoria	= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_ICON)));
+			Integer id			= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry._ID)));
+			String nomeGroup	= c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_TITLE));
+			Integer iconGroup	= Integer.parseInt(c.getString(c.getColumnIndex(GroupEntry.COLUMN_NAME_ICON)));
 			
 			// Put it in the return ArrayList
-			Group newGroup = new Group(id, nomeCategoria, iconCategoria);
+			Group newGroup = new Group(id, nomeGroup, iconGroup);
 			groups.add(newGroup);
 			
 			c.moveToNext();

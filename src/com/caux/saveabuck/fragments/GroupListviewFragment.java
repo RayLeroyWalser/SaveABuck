@@ -2,6 +2,7 @@ package com.caux.saveabuck.fragments;
 
 import java.util.ArrayList;
 
+import com.caux.saveabuck.AddGroupActivity;
 import com.caux.saveabuck.AddTransactionActivity;
 import com.caux.saveabuck.db.SaveABuckData;
 import com.caux.saveabuck.model.Group;
@@ -33,9 +34,8 @@ public class GroupListviewFragment extends Fragment {
         // Initialize the DB
         DB = new SaveABuckData(this.getActivity()); 
         
-        populateGroupListBox();
+        // Add click handler
         addListViewClickHandler();
-
     }	
 	
 	
@@ -67,9 +67,16 @@ public class GroupListviewFragment extends Fragment {
     	listView.setOnItemClickListener(new OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    	    Intent intent = new Intent(TransactionListviewFragment.this.getActivity(), AddTransactionActivity.class);
-    	    intent.putExtra("transactionToEdit", transactions.get(position).getId().toString());
-    	    startActivity(intent);	        	
+	        	Object o = parent.getItemAtPosition(position);
+	        	if(o.toString() == "+") {
+	        	    Intent intent = new Intent(GroupListviewFragment.this.getActivity(), AddGroupActivity.class);
+	        	    startActivity(intent);          		
+	        	}
+	        	else {
+	        	    Intent intent = new Intent(GroupListviewFragment.this.getActivity(), AddTransactionActivity.class);
+	        	    intent.putExtra("groupToEdit", groups.get(position).getId().toString());
+	        	    startActivity(intent);       		
+	        	}        	
             }
     	});
     }	

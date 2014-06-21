@@ -1,8 +1,6 @@
 package com.caux.saveabuck;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,12 +8,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-
 import com.caux.saveabuck.db.SaveABuckData;
-import com.caux.saveabuck.model.Group;
+import com.caux.saveabuck.fragments.GroupListviewFragment;
 import com.caux.saveabuck.model.Transaction;
 import com.example.saveabuck.R;
 
@@ -24,6 +19,7 @@ public class AddTransactionActivity extends Activity {
 	protected SaveABuckData DB;
 	protected EditText editText;
 	protected String transactionToEditAsString;
+	protected GroupListviewFragment groupListView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +31,7 @@ public class AddTransactionActivity extends Activity {
 
 		// Get the resources
 		editText = (EditText) findViewById(R.id.editTextValue);
+		groupListView = (GroupListviewFragment) getFragmentManager().findFragmentById(R.id.groupListviewFragment);		
 		
         // Request focus and show soft keyboard automatically
 		editText.requestFocus();
@@ -64,10 +61,15 @@ public class AddTransactionActivity extends Activity {
         // Set a Textwatcher to format the input
         editText.setRawInputType(Configuration.KEYBOARD_12KEY); 
         addTransactionFormatter();   
-        
-        // Populate Choose Group listbox
-        populateGroupListBox();		
 	}
+	
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+	
+		groupListView.populateGroupListBox();
+	}	
 	
 	/** Called when the user clicks the Ok button */
 	public void buttonAddTransaction(View view) {
@@ -122,23 +124,4 @@ public class AddTransactionActivity extends Activity {
 			}
     	});
     }
-    
-	public void populateGroupListBox() {		
-        SaveABuckData DB = new SaveABuckData(this);        
-
-		ArrayList<Group> groups = DB.getGroups();
-		ArrayList<String> values = new ArrayList<String>();
-
-		for(int count = 0; count < groups.size(); count++) {
-			// TODO Format colors
-			values.add(groups.get(count).getTitle());
-		}
-		values.add("+");
-
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-	    
-		// Get the Activity elements
-        ListView listView = (ListView) this.findViewById(R.id.grouplist);	    
-	    listView.setAdapter(adapter);
-	}    
 }

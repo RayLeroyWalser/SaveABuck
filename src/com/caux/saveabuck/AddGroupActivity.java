@@ -2,14 +2,9 @@ package com.caux.saveabuck;
 
 import com.caux.saveabuck.db.SaveABuckData;
 import com.caux.saveabuck.model.Group;
-import com.caux.saveabuck.model.Transaction;
 import com.example.saveabuck.R;
-import com.example.saveabuck.R.layout;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
 import android.widget.EditText;
@@ -17,6 +12,7 @@ import android.widget.EditText;
 public class AddGroupActivity extends Activity {
 	protected SaveABuckData DB;
 	protected EditText editText;
+	protected String groupToEditAsString;
 
 	
 	@Override
@@ -33,7 +29,20 @@ public class AddGroupActivity extends Activity {
         // Request focus and show soft keyboard automatically
 		editText.requestFocus();
         this.getWindow().setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        
+     
+		// In the case this is editing existing Transactions we need to know which one we're editing
+		Bundle extraVariables = getIntent().getExtras();
+        if(extraVariables != null)
+        {
+        	groupToEditAsString = extraVariables.getString("groupToEdit");
+        	
+            if(groupToEditAsString != null)
+            {
+            	Group groupToEdit = DB.getGroup(Integer.parseInt(groupToEditAsString));
+            	
+            	editText.setText(groupToEdit.getTitle());
+            }
+        }        
         
 	}
 	
