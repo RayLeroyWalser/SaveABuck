@@ -3,18 +3,19 @@ package com.caux.saveabuck.colorpicker;
 import com.caux.saveabuck.piechart.PieChart;
 import com.example.saveabuck.R;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.view.animation.AnticipateOvershootInterpolator;
 
 public class Colorpicker extends ViewGroup {
 	private RectF bounds;
@@ -26,9 +27,12 @@ public class Colorpicker extends ViewGroup {
 
 	private Integer selectedRegion = -1;
 	
-	private GestureDetector mDetector;
+	private GestureDetector gestureDetector;
 	
-
+	private ObjectAnimator colorAnimatorSelect;
+	
+	private int selectedRadiusDifference;
+	private int maxRadiusDifference = 20;
 	
 	public Colorpicker(Context context) {
 		super(context);		
@@ -46,7 +50,10 @@ public class Colorpicker extends ViewGroup {
 	}
 	
 	protected void init() {
+
+		// Paint
 		paint = new Paint();
+		paint.setStyle(Paint.Style.FILL);
 		
 		Resources res = getResources();
 		
@@ -61,8 +68,12 @@ public class Colorpicker extends ViewGroup {
 		colors[7] = res.getColor(R.color.magenta);
 	
 		// Create a gesture detector to handle onTouch messages
-		mDetector = new GestureDetector(Colorpicker.this.getContext(), new GestureListener());
-		
+		gestureDetector = new GestureDetector(Colorpicker.this.getContext(), new GestureListener());
+	
+		// Animator to change size of the selected color
+		colorAnimatorSelect = ObjectAnimator.ofInt(Colorpicker.this, "SelectedRadiusDifference", 0, maxRadiusDifference);		
+		colorAnimatorSelect.setDuration(300);
+		colorAnimatorSelect.setInterpolator(new AnticipateOvershootInterpolator());
 		
 	}
 
@@ -70,8 +81,6 @@ public class Colorpicker extends ViewGroup {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		// Style of paint
-		paint.setStyle(Paint.Style.FILL);
 		
 		for(Integer count = 0; count < maxRegions; count++)
 		{
@@ -91,7 +100,7 @@ public class Colorpicker extends ViewGroup {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// Let the GestureDetector interpret this event
-		boolean result = mDetector.onTouchEvent(event);
+		boolean result = gestureDetector.onTouchEvent(event);
 
 		// If the GestureDetector doesn't want this event, do some custom processing.
 		// This code just tries to detect when the user is done scrolling by looking
@@ -144,11 +153,17 @@ public class Colorpicker extends ViewGroup {
 		float spacingHor = (bounds.right / numberOfColumns);
 		float spacingVer = (bounds.bottom / numberOfRows);
 		
+		float baseRadius = (Math.min(spacingHor, spacingVer) / 2) - maxRadiusDifference / 2;
+		
+		if(selectedRegion ==  -1) {
+			return baseRadius;
+		}
+			
 		if(region == selectedRegion) {
-			return (Math.min(spacingHor, spacingVer) / 2);
+			return baseRadius + (selectedRadiusDifference / 2);
 		}
 		else {
-			return (Math.min(spacingHor, spacingVer) / 2) - 15;
+			return baseRadius - (selectedRadiusDifference / 2);
 
 		}		
 	}
@@ -168,7 +183,7 @@ public class Colorpicker extends ViewGroup {
  
     			Colorpicker.this.selectedRegion = clickedRegion;
     			
-    			Colorpicker.this.invalidate();
+    			colorAnimatorSelect.start();
             }
 			
 			
@@ -178,4 +193,12 @@ public class Colorpicker extends ViewGroup {
 		
 
 	}
+
+	public void setSelectedRadiusDifference(int selectedRadiusDifference) {
+		this.selectedRadiusDifference = selectedRadiusDifference;
+		Colorpicker.this.invalidate();
+
+	}
+	
+	
 }
