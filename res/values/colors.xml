@@ -1,5 +1,5 @@
 <resources>
-
+    <color name="white">#ffffffff</color>
     <color name="black_overlay">#66000000</color>
     <color name="seafoam">#ffc6f9e5</color>
     <color name="chartreuse">#ffb6e9b5</color>

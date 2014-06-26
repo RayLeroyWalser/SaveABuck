@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import com.example.saveabuck.R;
 
 public class ColorpickerFragment extends Fragment {
+	
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+ 
+        
     }	
 	
 	
@@ -21,9 +23,6 @@ public class ColorpickerFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_colorpicker, container, false);		
 		
 		return view;
-		
-		
-		
 		
 	}
 }

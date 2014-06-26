@@ -1,9 +1,7 @@
 package com.caux.saveabuck.colorpicker;
 
-import com.caux.saveabuck.piechart.PieChart;
 import com.example.saveabuck.R;
 
-import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.Resources;
@@ -16,6 +14,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.OvershootInterpolator;;
 
 public class Colorpicker extends ViewGroup {
 	private RectF bounds;
@@ -30,6 +29,7 @@ public class Colorpicker extends ViewGroup {
 	private GestureDetector gestureDetector;
 	
 	private ObjectAnimator colorAnimatorSelect;
+	private ObjectAnimator colorAnimatorNoSelection;
 	
 	private int selectedRadiusDifference;
 	private int maxRadiusDifference = 20;
@@ -70,10 +70,16 @@ public class Colorpicker extends ViewGroup {
 		// Create a gesture detector to handle onTouch messages
 		gestureDetector = new GestureDetector(Colorpicker.this.getContext(), new GestureListener());
 	
-		// Animator to change size of the selected color
+		// Animator to change size of the selected color		
 		colorAnimatorSelect = ObjectAnimator.ofInt(Colorpicker.this, "SelectedRadiusDifference", 0, maxRadiusDifference);		
 		colorAnimatorSelect.setDuration(300);
 		colorAnimatorSelect.setInterpolator(new AnticipateOvershootInterpolator());
+		
+		// Animator to change size of the selected color		
+		colorAnimatorNoSelection = ObjectAnimator.ofInt(Colorpicker.this, "SelectedRadiusDifference", -maxRadiusDifference, 0);		
+		colorAnimatorNoSelection.setDuration(300);
+		colorAnimatorNoSelection.setInterpolator(new OvershootInterpolator());
+		
 		
 	}
 
@@ -153,17 +159,18 @@ public class Colorpicker extends ViewGroup {
 		float spacingHor = (bounds.right / numberOfColumns);
 		float spacingVer = (bounds.bottom / numberOfRows);
 		
-		float baseRadius = (Math.min(spacingHor, spacingVer) / 2) - maxRadiusDifference / 2;
+		float baseRadius = (float) ((Math.min(spacingHor, spacingVer) / 2) - maxRadiusDifference * 0.75);
 		
-		if(selectedRegion ==  -1) {
-			return baseRadius;
+		
+		if(selectedRegion == -1) {
+			return baseRadius + selectedRadiusDifference;
 		}
 			
 		if(region == selectedRegion) {
-			return baseRadius + (selectedRadiusDifference / 2);
+			return (float) (baseRadius + (selectedRadiusDifference * 0.75));
 		}
 		else {
-			return baseRadius - (selectedRadiusDifference / 2);
+			return (float) (baseRadius - (selectedRadiusDifference * 0.25));
 
 		}		
 	}
@@ -183,6 +190,7 @@ public class Colorpicker extends ViewGroup {
  
     			Colorpicker.this.selectedRegion = clickedRegion;
     			
+
     			colorAnimatorSelect.start();
             }
 			
@@ -193,11 +201,19 @@ public class Colorpicker extends ViewGroup {
 		
 
 	}
+	
+	public void showNoSelection() {
+		colorAnimatorNoSelection.start();
+	}
 
 	public void setSelectedRadiusDifference(int selectedRadiusDifference) {
 		this.selectedRadiusDifference = selectedRadiusDifference;
 		Colorpicker.this.invalidate();
 
+	}
+
+	public Integer getSelectedColor() {
+		return selectedRegion;
 	}
 	
 	
