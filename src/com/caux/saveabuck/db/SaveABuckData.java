@@ -140,7 +140,7 @@ public class SaveABuckData extends SQLiteOpenHelper {
 		
 		ContentValues values = new ContentValues();
 		values.put(GroupEntry.COLUMN_NAME_TITLE, aGroup.getTitle());
-		values.put(GroupEntry.COLUMN_NAME_ICON, aGroup.getIcon());
+		values.put(GroupEntry.COLUMN_NAME_ICON, aGroup.getColor());
 		
 		Long newRowId;
 		newRowId = db.insert(GroupEntry.TABLE_NAME, null, values);

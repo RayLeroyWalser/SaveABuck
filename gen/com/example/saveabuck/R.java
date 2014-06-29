@@ -103,22 +103,23 @@ containing a value of this type.
         public static final int showText=0x7f010009;
     }
     public static final class color {
-        public static final int black=0x7f050007;
-        public static final int black_overlay=0x7f050000;
-        public static final int blue=0x7f05000e;
-        public static final int bluegrass=0x7f050004;
-        public static final int chartreuse=0x7f050002;
-        public static final int cyan=0x7f05000d;
-        public static final int dark_red=0x7f050008;
-        public static final int emerald=0x7f050003;
-        public static final int green=0x7f05000c;
-        public static final int magenta=0x7f05000f;
-        public static final int orange=0x7f05000a;
-        public static final int red=0x7f050009;
-        public static final int seafoam=0x7f050001;
-        public static final int slate=0x7f050006;
-        public static final int turquoise=0x7f050005;
-        public static final int yellow=0x7f05000b;
+        public static final int black=0x7f050008;
+        public static final int black_overlay=0x7f050001;
+        public static final int blue=0x7f05000f;
+        public static final int bluegrass=0x7f050005;
+        public static final int chartreuse=0x7f050003;
+        public static final int cyan=0x7f05000e;
+        public static final int dark_red=0x7f050009;
+        public static final int emerald=0x7f050004;
+        public static final int green=0x7f05000d;
+        public static final int magenta=0x7f050010;
+        public static final int orange=0x7f05000b;
+        public static final int red=0x7f05000a;
+        public static final int seafoam=0x7f050002;
+        public static final int slate=0x7f050007;
+        public static final int turquoise=0x7f050006;
+        public static final int white=0x7f050000;
+        public static final int yellow=0x7f05000c;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -142,17 +143,22 @@ containing a value of this type.
     public static final class id {
         public static final int Colorpicker=0x7f04000a;
         public static final int Pie=0x7f04000c;
-        public static final int action_settings=0x7f04000e;
+        public static final int action_settings=0x7f040013;
         public static final int addtransaction=0x7f040008;
         public static final int button_Add=0x7f040004;
         public static final int button_Cancel=0x7f040003;
+        public static final int categoryId=0x7f040011;
         public static final int colorpickerFragment=0x7f040005;
+        public static final int description=0x7f040012;
         public static final int editTextValue=0x7f040002;
         public static final int groupListviewFragment=0x7f040006;
         public static final int grouplist=0x7f04000b;
+        public static final int id=0x7f04000f;
         public static final int left=0x7f040000;
         public static final int piechartFragment=0x7f040007;
         public static final int right=0x7f040001;
+        public static final int rowGroupListView=0x7f04000e;
+        public static final int rowTransactionListView=0x7f040010;
         public static final int transactionListviewFragment=0x7f040009;
         public static final int transactionlist=0x7f04000d;
     }
@@ -164,6 +170,8 @@ containing a value of this type.
         public static final int fragment_group_listview=0x7f030004;
         public static final int fragment_piechart_month=0x7f030005;
         public static final int fragment_transaction_listview=0x7f030006;
+        public static final int row_group_listview=0x7f030007;
+        public static final int row_transaction_listview=0x7f030008;
     }
     public static final class menu {
         public static final int menu_main=0x7f090000;
@@ -173,11 +181,11 @@ containing a value of this type.
         public static final int add_transaction=0x7f070004;
         public static final int app_name=0x7f070000;
         public static final int cancel_button=0x7f070006;
-        public static final int hello_world=0x7f070008;
         public static final int ok_button=0x7f070005;
         public static final int title_activity_add_group=0x7f070007;
         public static final int title_activity_menu_principal=0x7f070001;
         public static final int transaction_hint=0x7f070003;
+        public static final int value=0x7f070008;
     }
     public static final class style {
         /** 

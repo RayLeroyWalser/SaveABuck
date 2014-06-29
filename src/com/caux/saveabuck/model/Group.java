@@ -3,20 +3,20 @@ package com.caux.saveabuck.model;
 public class Group {
 	private Integer id;
 	private String 	title;
-	private Integer icon;
+	private Integer color;
 	
-	public Group(Integer id, String title, Integer icon) {
+	public Group(Integer id, String title, Integer color) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.icon = icon;
+		this.color = color;
 	}
 
-	public Group(String title, Integer icon) {
+	public Group(String title, Integer color) {
 		super();
 		this.id = -1;
 		this.title = title;
-		this.icon = icon;
+		this.color = color;
 	}
 
 	public Integer getId() {
@@ -35,12 +35,12 @@ public class Group {
 		this.title = title;
 	}
 
-	public Integer getIcon() {
-		return icon;
+	public Integer getColor() {
+		return color;
 	}
 
-	public void setIcon(Integer icon) {
-		this.icon = icon;
+	public void setColor(Integer color) {
+		this.color = color;
 	}	
 
 
