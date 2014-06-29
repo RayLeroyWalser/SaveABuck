@@ -2,11 +2,9 @@ package com.caux.saveabuck;
 
 import com.caux.saveabuck.colorpicker.Colorpicker;
 import com.caux.saveabuck.db.SaveABuckData;
-import com.caux.saveabuck.fragments.ColorpickerFragment;
 import com.caux.saveabuck.model.Group;
 import com.example.saveabuck.R;
 import android.app.Activity;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
@@ -17,8 +15,6 @@ public class AddGroupActivity extends Activity {
 	protected EditText editText;
 	protected String groupToEditAsString;
 	private Colorpicker colorPicker;
-	// TODO Get Color Picker fragment to get the selected color.
-
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

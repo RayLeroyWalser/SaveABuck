@@ -7,7 +7,7 @@
     <color name="bluegrass">#ff96c9b5</color>
     <color name="turquoise">#ff86b9b5</color>
     <color name="slate">#ff76a9b5</color>
-    <color name="black">#00000000</color>
+    <color name="black">#ff000000</color>
 	<color name="dark_red">#ffaf0000</color>
 	<color name="red">#ffff0000</color>
 	<color name="orange">#ffffaf00</color>

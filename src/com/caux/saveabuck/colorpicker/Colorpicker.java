@@ -213,7 +213,7 @@ public class Colorpicker extends ViewGroup {
 	}
 
 	public Integer getSelectedColor() {
-		return selectedRegion;
+		return colors[selectedRegion];
 	}
 	
 	
