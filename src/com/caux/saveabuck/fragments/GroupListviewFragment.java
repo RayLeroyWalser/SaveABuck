@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.caux.saveabuck.AddGroupActivity;
-import com.caux.saveabuck.AddTransactionActivity;
 import com.caux.saveabuck.db.SaveABuckData;
 import com.caux.saveabuck.model.Group;
 import com.example.saveabuck.R;
@@ -25,6 +24,7 @@ import android.widget.TextView;
 public class GroupListviewFragment extends Fragment {
 	protected ListView listView;
 	protected SaveABuckData DB;
+	protected Integer selectedID = -1;
 	
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -78,6 +78,7 @@ public class GroupListviewFragment extends Fragment {
 	        	    //intent.putExtra("groupToEdit", groups.get(position).getId().toString());
 	        	    //startActivity(intent);
 	       	        TextView tt = (TextView) view.findViewById(R.id.id);
+	       	        selectedID = group.getId();
 
 	    	        if (tt != null) {
 	    	            tt.setTextSize(35);
@@ -128,4 +129,9 @@ public class GroupListviewFragment extends Fragment {
 
     	}
     }
+
+
+	public Integer getSelectedID() {
+		return selectedID;
+	}
 }

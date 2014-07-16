@@ -74,9 +74,13 @@ public class AddTransactionActivity extends Activity {
 	/** Called when the user clicks the Ok button */
 	public void buttonAddTransaction(View view) {
 		Double value = Double.valueOf(editText.getText().toString().replaceAll("[$]", ""));
-		// TODO Get the group ID
+		Integer groupID = groupListView.getSelectedID();
+		if(groupID == -1)
+		{
+			// TODO: Add code to make sure user selects a group
+		}
 		
-		Transaction newTransaction = new Transaction(0, 0, value);
+		Transaction newTransaction = new Transaction(groupID, 0, value);
 		
 		DB.storeTransaction(newTransaction);
 	    this.finish();			
