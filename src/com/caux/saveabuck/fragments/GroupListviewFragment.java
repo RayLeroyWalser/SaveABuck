@@ -77,9 +77,10 @@ public class GroupListviewFragment extends Fragment {
 	        		//ArrayList<Group> groups = DB.getGroups();
 	        	    //intent.putExtra("groupToEdit", groups.get(position).getId().toString());
 	        	    //startActivity(intent);
-	       	        TextView tt = (TextView) view.findViewById(R.id.id);
-	       	        selectedID = group.getId();
 
+	       	        selectedID = group.getId();
+	       	        
+	        		TextView tt = (TextView) view.findViewById(R.id.id);
 	    	        if (tt != null) {
 	    	            tt.setTextSize(35);
 	    	        }
@@ -128,6 +129,11 @@ public class GroupListviewFragment extends Fragment {
     	    return v;
 
     	}
+    }
+    
+    public void showNoGroupSelected() {
+    	ListView listView = (ListView) this.getActivity().findViewById(R.id.grouplist);
+    	
     }
 
 
