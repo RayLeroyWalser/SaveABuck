@@ -75,15 +75,13 @@ public class AddTransactionActivity extends Activity {
 	public void buttonAddTransaction(View view) {
 		Double value = Double.valueOf(editText.getText().toString().replaceAll("[$]", ""));
 		Integer groupID = groupListView.getSelectedID();
-		if(groupID == -1)
-		{
-			// TODO: Add code to make sure user selects a group
-		}
-		
-		Transaction newTransaction = new Transaction(groupID, 0, value);
-		
-		DB.storeTransaction(newTransaction);
-	    this.finish();			
+		if(groupID != -1) {
+			Transaction newTransaction = new Transaction(groupID, 0, value);
+			DB.storeTransaction(newTransaction);
+		    this.finish();
+		} else {
+			groupListView.showNoGroupSelected();			
+		}			
 	}	
 	
 	/** Called when the user clicks the Cancel button */

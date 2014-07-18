@@ -11,6 +11,7 @@ public final class R {
     public static final class anim {
         public static final int cycle=0x7f040000;
         public static final int shake=0x7f040001;
+        public static final int wave_scale=0x7f040002;
     }
     public static final class attr {
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".

@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -25,6 +27,7 @@ public class GroupListviewFragment extends Fragment {
 	protected ListView listView;
 	protected SaveABuckData DB;
 	protected Integer selectedID = -1;
+	protected GroupAdapter adapter;
 	
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -56,7 +59,7 @@ public class GroupListviewFragment extends Fragment {
 		
 		groups.addAll(DB.getGroups());
 
-		GroupAdapter adapter = new GroupAdapter(this.getActivity(), android.R.layout.simple_list_item_1, groups);
+		adapter = new GroupAdapter(this.getActivity(), android.R.layout.simple_list_item_1, groups);
 	    
 		// Get the Activity elements
         ListView listView = (ListView) this.getActivity().findViewById(R.id.grouplist);	    
@@ -82,7 +85,12 @@ public class GroupListviewFragment extends Fragment {
 	       	        
 	        		TextView tt = (TextView) view.findViewById(R.id.id);
 	    	        if (tt != null) {
-	    	            tt.setTextSize(35);
+	    	        	adapter.setHasSelection();
+	            		adapter.notifyDataSetChanged();
+
+	    	        	Animation animation = AnimationUtils.loadAnimation(view.getContext(), R.anim.wave_scale);
+	        	    	animation.setDuration(100);
+	        	    	view.startAnimation(animation);
 	    	        }
 	 	        		
 	        	}        	
@@ -92,7 +100,7 @@ public class GroupListviewFragment extends Fragment {
     
     
     public class GroupAdapter extends ArrayAdapter<Group> {
-
+    	private Boolean animatingViews = false;
     	public GroupAdapter(Context context, int textViewResourceId) {
     	    super(context, textViewResourceId);
     	}
@@ -123,17 +131,44 @@ public class GroupListviewFragment extends Fragment {
     	        if (tt != null) {
     	            tt.setText(group.getTitle());
     	            tt.setTextColor(group.getColor());
+    	            
+    	            Integer selectedID = GroupListviewFragment.this.selectedID;
+
+    	            if(group.getId() == GroupListviewFragment.this.selectedID)
+    	            {
+    	            	tt.setTextSize(40);		//TODO get this number dynamically
+    	            } else {
+    	            	tt.setTextSize(30);		//TODO get this number dynamically
+    	            }
+
     	        }
     	    }
 
+    	    if(animatingViews) {  
+    	    	Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.shake);;
+    	    	animation.setDuration(500);
+    	    	convertView.startAnimation(animation);  	    	
+    	    }
+    	    
+
+
+    	    
     	    return v;
 
+    	}
+    	
+    	public void showNoSelection() {
+    		animatingViews = true;
+    		notifyDataSetChanged();
+    	}
+    	
+    	public void setHasSelection() {
+    		animatingViews = false;
     	}
     }
     
     public void showNoGroupSelected() {
-    	ListView listView = (ListView) this.getActivity().findViewById(R.id.grouplist);
-    	
+    	adapter.showNoSelection();    	
     }
 
 
