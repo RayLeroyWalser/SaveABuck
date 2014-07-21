@@ -15,5 +15,7 @@
 	<color name="green">#ff00ff00</color>
 	<color name="cyan">#ff00ffff</color>
 	<color name="blue">#ff0000ff</color>
-	<color name="magenta">#ffff00ff</color> 
+	<color name="magenta">#ffff00ff</color>
+	<color name="light_gray">#fff0f0f0</color> 
+	
 </resources>

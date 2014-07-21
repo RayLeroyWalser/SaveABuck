@@ -48,7 +48,13 @@ public class SaveABuckData extends SQLiteOpenHelper {
 	public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		onUpgrade(db, oldVersion, newVersion);
 	}
-	
+	public void cleanUp() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL(SQL_DELETE_TABLE_ENVELOPES);
+		db.execSQL(SQL_DELETE_TABLE_GROUPS);
+		db.execSQL(SQL_DELETE_TABLE_LANCAMENTOS);        
+		onCreate(db);
+	}	
 	// Envelopes		///////////////////////////////////////////////////////////////////////
 	
 	// Create Table

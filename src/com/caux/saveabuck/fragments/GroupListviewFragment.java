@@ -11,6 +11,7 @@ import com.example.saveabuck.R;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +38,8 @@ public class GroupListviewFragment extends Fragment {
         listView = (ListView) this.getActivity().findViewById(R.id.grouplist);
         
         // Initialize the DB
-        DB = new SaveABuckData(this.getActivity()); 
-        
+        DB = new SaveABuckData(this.getActivity());
+                
         // Add click handler
         addListViewClickHandler();
     }	
@@ -50,18 +51,25 @@ public class GroupListviewFragment extends Fragment {
 		
 		return view;
 	}
-	
-	public void populateGroupListBox() {		
+ 
+    public void showNoGroupSelected() {
+    	adapter.showNoSelection();    	
+    }
+
+
+	public Integer getSelectedID() {
+		return selectedID;
+	}    
+    
+	public void populateGroupListBox() {
+		// Create a temporary group adapter with the '+' group in it
 		ArrayList<Group> groups = new ArrayList<Group>();
-		
 		Group addGroup = new Group("+", getResources().getColor(R.color.black));
 		groups.add(addGroup);
-		
 		groups.addAll(DB.getGroups());
 
+		// Now we create the official customized adapter, populate it with a the temporary adapter and connect the listview to it.
 		adapter = new GroupAdapter(this.getActivity(), android.R.layout.simple_list_item_1, groups);
-	    
-		// Get the Activity elements
         ListView listView = (ListView) this.getActivity().findViewById(R.id.grouplist);	    
 	    listView.setAdapter(adapter);
 	}
@@ -76,14 +84,9 @@ public class GroupListviewFragment extends Fragment {
 	        	    startActivity(intent);          		
 	        	}
 	        	else {
-	        	    //Intent intent = new Intent(GroupListviewFragment.this.getActivity(), AddTransactionActivity.class);
-	        		//ArrayList<Group> groups = DB.getGroups();
-	        	    //intent.putExtra("groupToEdit", groups.get(position).getId().toString());
-	        	    //startActivity(intent);
-
 	       	        selectedID = group.getId();
 	       	        
-	        		TextView tt = (TextView) view.findViewById(R.id.id);
+	        		TextView tt = (TextView) view.findViewById(R.id.groupname);
 	    	        if (tt != null) {
 	    	        	adapter.setHasSelection();
 	            		adapter.notifyDataSetChanged();
@@ -96,11 +99,11 @@ public class GroupListviewFragment extends Fragment {
 	        	}        	
             }
     	});
-    }
-    
-    
+    }	
+	
     public class GroupAdapter extends ArrayAdapter<Group> {
     	private Boolean animatingViews = false;
+    	
     	public GroupAdapter(Context context, int textViewResourceId) {
     	    super(context, textViewResourceId);
     	}
@@ -111,47 +114,34 @@ public class GroupListviewFragment extends Fragment {
 
     	@Override
     	public View getView(int position, View convertView, ViewGroup parent) {
-
     	    View v = convertView;
-
     	    if (v == null) {
-
-    	        LayoutInflater vi;
+    	    	LayoutInflater vi;
     	        vi = LayoutInflater.from(getContext());
     	        v = vi.inflate(R.layout.row_group_listview, null);
-
     	    }
 
     	    Group group = getItem(position);
-
     	    if (group != null) {
-
-    	        TextView tt = (TextView) v.findViewById(R.id.id);
-
+    	        TextView tt = (TextView) v.findViewById(R.id.groupname);
     	        if (tt != null) {
     	            tt.setText(group.getTitle());
     	            tt.setTextColor(group.getColor());
     	            
     	            Integer selectedID = GroupListviewFragment.this.selectedID;
-
-    	            if(group.getId() == GroupListviewFragment.this.selectedID)
-    	            {
-    	            	tt.setTextSize(40);		//TODO get this number dynamically
+    	            if((group.getId() != -1) && (group.getId() == selectedID)) {
+    	            	tt.setBackgroundColor(getResources().getColor(R.color.light_gray));
     	            } else {
-    	            	tt.setTextSize(30);		//TODO get this number dynamically
+    	            	tt.setBackgroundColor(getResources().getColor(R.color.white));
     	            }
-
     	        }
     	    }
 
     	    if(animatingViews) {  
     	    	Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.shake);;
-    	    	animation.setDuration(500);
+    	    	animation.setDuration(200);
     	    	convertView.startAnimation(animation);  	    	
     	    }
-    	    
-
-
     	    
     	    return v;
 
@@ -165,14 +155,5 @@ public class GroupListviewFragment extends Fragment {
     	public void setHasSelection() {
     		animatingViews = false;
     	}
-    }
-    
-    public void showNoGroupSelected() {
-    	adapter.showNoSelection();    	
-    }
-
-
-	public Integer getSelectedID() {
-		return selectedID;
-	}
+    }   
 }

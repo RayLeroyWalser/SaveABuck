@@ -117,6 +117,7 @@ containing a value of this type.
         public static final int dark_red=0x7f060009;
         public static final int emerald=0x7f060004;
         public static final int green=0x7f06000d;
+        public static final int light_gray=0x7f060011;
         public static final int magenta=0x7f060010;
         public static final int orange=0x7f06000b;
         public static final int red=0x7f06000a;
@@ -148,24 +149,25 @@ containing a value of this type.
     public static final class id {
         public static final int Colorpicker=0x7f05000a;
         public static final int Pie=0x7f05000c;
-        public static final int action_settings=0x7f050013;
+        public static final int action_settings=0x7f050014;
         public static final int addtransaction=0x7f050008;
         public static final int button_Add=0x7f050004;
         public static final int button_Cancel=0x7f050003;
-        public static final int categoryId=0x7f050011;
         public static final int colorpickerFragment=0x7f050005;
-        public static final int description=0x7f050012;
         public static final int editTextValue=0x7f050002;
         public static final int groupListviewFragment=0x7f050006;
         public static final int grouplist=0x7f05000b;
-        public static final int id=0x7f05000f;
+        public static final int groupname=0x7f05000f;
         public static final int left=0x7f050000;
         public static final int piechartFragment=0x7f050007;
         public static final int right=0x7f050001;
         public static final int rowGroupListView=0x7f05000e;
         public static final int rowTransactionListView=0x7f050010;
         public static final int transactionListviewFragment=0x7f050009;
+        public static final int transactiondate=0x7f050013;
+        public static final int transactiongroup=0x7f050012;
         public static final int transactionlist=0x7f05000d;
+        public static final int transactionvalue=0x7f050011;
     }
     public static final class layout {
         public static final int activity_add_group=0x7f030000;
