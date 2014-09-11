@@ -1,6 +1,7 @@
 package com.caux.saveabuck.db;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -314,6 +315,54 @@ public class SaveABuckData extends SQLiteOpenHelper {
 	public ArrayList<Transaction> getTransactions() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		
+		String[] projection = {
+				TransactionEntry._ID,
+				TransactionEntry.COLUMN_NAME_GROUP,
+				TransactionEntry.COLUMN_NAME_TIMESTAMP,
+				TransactionEntry.COLUMN_NAME_ENVELOPE,
+				TransactionEntry.COLUMN_NAME_VALUE
+				};
+		
+		// Sort by timestamp
+		String sortOrder = TransactionEntry.COLUMN_NAME_TIMESTAMP + " DESC";
+		
+		Cursor c = db.query(
+				TransactionEntry.TABLE_NAME, 			// The table to query
+				projection,                             // The columns to return
+				null,                             		// The columns for the WHERE clause
+				null,                        			// The values for the WHERE clause
+				null,                                   // don't group the rows
+				null,                                   // don't filter by row groups
+				sortOrder                               // The sort order
+				);
+		
+		c.moveToFirst();
+		
+		while(c.isAfterLast() == false) {
+			// Get the indexes and then get the values
+			Integer id					= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry._ID)));
+			Integer groupTransaction 	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_GROUP)));
+			Integer envelopeTransaction	= Integer.parseInt(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_ENVELOPE)));
+			Long timestampTransaction	= Long.parseLong(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_TIMESTAMP)));
+			Double valueTransaction		= Double.parseDouble(c.getString(c.getColumnIndex(TransactionEntry.COLUMN_NAME_VALUE)));
+				
+			// Put it in the return ArrayList			
+			Transaction transaction = new Transaction(id, groupTransaction,  envelopeTransaction, timestampTransaction, valueTransaction);
+			transactions.add(transaction);
+			
+			c.moveToNext();
+		}
+			
+		return transactions;
+	}
+	
+	public ArrayList<Transaction> getTransactionsByDate(Long dateTimestampToList) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		
+		Date date = new Date(dateTimestampToList);
+		
 		
 		String[] projection = {
 				TransactionEntry._ID,

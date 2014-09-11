@@ -505,6 +505,7 @@ public class PieChart extends ViewGroup {
 		// Try for a width based on our minimum
 		int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
 
+		
 		int w = Math.max(minw, MeasureSpec.getSize(widthMeasureSpec));
 
 		// Whatever the width ends up being, ask for a height that would let the pie
